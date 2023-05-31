@@ -1,0 +1,31 @@
+h1 {
+    color: hotpink;
+}
+
+p {
+    color: blue;
+}
+
+#name {
+    color: red;
+}
+
+#lastName {
+    color: purple;
+}
+
+.mybox {
+    background-color: lightpink;
+    width: 90px;
+    height: 90px;
+}
+#myboxID {
+    background-color: violet;
+    width: 90px;
+    height: 90px;
+}
+
+.mytext {
+    font-size: 22px;
+    color: darkred;
+}
