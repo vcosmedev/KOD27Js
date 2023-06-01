@@ -1,0 +1,38 @@
+/* Selector avanzado, tag + id */
+
+nav#nvg {
+    background-color: aqua;
+}
+
+.first.second#uniqueid {
+    background-color: blueviolet;
+    color: white;
+}
+
+.buttons__container > .buttons__ecommerce {
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 3px;
+    font-size: large;
+    cursor: pointer;
+}
+
+.buttons__container > .button__container--add {
+    background-color: rgb(165, 183, 237);
+}
+
+.buttons__container > .button__container--buy {
+    background-color: rgb(72, 111, 228);
+    color: white;
+}
+
+.buttons__ecommerce ~ .button__container--add:hover {
+    background-color: rgb(72, 111, 228);
+    color: white;
+
+}
+.buttons__ecommerce ~ .button__container--buy:hover {
+    background-color: rgb(165, 183, 237);
+    color: black;
+}
