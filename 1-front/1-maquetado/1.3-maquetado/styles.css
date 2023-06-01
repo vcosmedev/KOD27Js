@@ -30,8 +30,8 @@ nav#nvg {
 .buttons__ecommerce ~ .button__container--add:hover {
     background-color: rgb(72, 111, 228);
     color: white;
-
 }
+
 .buttons__ecommerce ~ .button__container--buy:hover {
     background-color: rgb(165, 183, 237);
     color: black;
