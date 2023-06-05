@@ -1,0 +1,55 @@
+/* max-width: 0-600px */
+/* @media only screen and (max-width: 600px) {
+    body {
+        background-color: aqua;
+    }
+} */
+
+/* min-width: 0-600px */
+/* @media only screen and (min-width: 600px) {
+    body {
+        background-color: blue;
+    }
+} */
+
+/* min-width: 601-768px */
+/* @media only screen and (min-width: 768px) {
+    body {
+        background-color: brown;
+    }
+} */
+
+/* min-width: 769px-992px */
+/* @media only screen and (min-width: 992px) {
+    body {
+        background-color: greenyellow;
+    }
+}  */
+
+/* min-width: 993px-1200px */
+/* @media only screen and (min-width: 1200px) {
+    body {
+        background-color: hotpink;
+    }
+} */
+
+.main__container > .main__box {
+    width: 90px;
+    height: 90px;
+    background-color: green;
+    margin: 10px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .main__box {
+        display: inline-block;
+        background-color: blue!important;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .main__box {
+        display: inline-block;
+        background-color: blue!important;
+    }
+}

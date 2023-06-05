@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.application__header {
+    background-color: rgb(8, 8, 8);
+    padding: 10px;
+}
+
+.ul__nav {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* .navigation__opt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.navigation__opt--color {
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.navigation__opt:hover {
+    color: aqua;
+}
