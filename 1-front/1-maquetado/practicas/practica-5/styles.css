@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: hsl(257, 40%, 49%);
+}
+
+.logo {
+    max-width: 135px;
+    margin: 30px;
+}
+
+@media all and (max-width: 600px) {
+    body {
+        background-image: url(./assets/bg-desktop.svg);
+    }
+
+    main {
+        text-align: center;
+    }
+
+    .section-left {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    img {
+        width: 315px;
+    }
+    
+    .section-right {
+        margin: 70px 15px 60px 15px;
+    }
+
+    h2 ~ p {
+        margin: 15px 5px 25px 5px;
+    }
+
+    .bttn-register {
+        padding: 10px 82px;
+        border: none;
+        font-size: smaller;
+        color: hsl(257, 40%, 49%);
+        border-radius: 25px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .socialmedia-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+}
