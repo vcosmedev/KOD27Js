@@ -6,6 +6,15 @@
 .background-image {
     background: url(./assets/pattern-background-desktop.svg) no-repeat;
 }
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
 .card {
     flex-direction: column;
     text-align: center;
