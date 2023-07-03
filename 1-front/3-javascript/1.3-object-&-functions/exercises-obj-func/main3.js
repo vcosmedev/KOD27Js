@@ -29,3 +29,17 @@ function createDog(argName, argColor, argSize, argWeight, argBreed) {
 }
 console.log(createDog("Fido III", "White", "Small", "1kg", "Chihuahua"));
 
+// Object Literals Using Object Property Shorthand
+// Third solution
+
+function getDogObjectPropertyShorthand(name, color, size, weight, breed){
+    let dog = {
+        name,
+        color,
+        size,
+        weight,
+        breed
+    }
+    return dog;
+}
+console.log(getDogObjectPropertyShorthand("Fido IV", "Grey", "Small", "1.1kg", "Chihuahua"));
