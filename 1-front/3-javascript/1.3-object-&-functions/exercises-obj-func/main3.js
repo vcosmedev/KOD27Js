@@ -24,7 +24,8 @@ function createDog(argName, argColor, argSize, argWeight, argBreed) {
     dog.color = argColor;
     dog.size = argSize;
     dog.weight = argWeight;
-    dog.breed = argWeight;
+    dog.breed = argBreed;
     return dog;
 }
 console.log(createDog("Fido III", "White", "Small", "1kg", "Chihuahua"));
+
