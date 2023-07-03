@@ -42,3 +42,20 @@ function getDogObjectPropertyShorthand(name, color, size, weight, breed){
     return dog;
 }
 console.log(getDogObjectPropertyShorthand("Fido IV", "Grey", "Small", "1.1kg", "Chihuahua"));
+
+
+function getDogObjectPropertyShorthand(name, color, size, weight, breed){
+    let owner = "Víctor";
+    let ownerAddress = "Av. Insurgentes";
+    let dog = {
+        name,
+        color,
+        size,
+        weight,
+        breed, 
+        owner,
+        ownerAddress
+    }
+    return dog;
+}
+console.log(getDogObjectPropertyShorthand("Fido IV", "Grey", "Small", "1.1kg", "Chihuahua"));
