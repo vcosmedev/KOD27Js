@@ -15,3 +15,16 @@ let dog = getDog("Fido", "Black", "Small", "3kg", "Chihuahua");
 console.log(dog);
 let dog2 = getDog("Fido Jr", "Brown", "Small", "1kg", "Chihuahua");
 console.log(dog2);
+
+// Second solution: 
+
+function createDog(argName, argColor, argSize, argWeight, argBreed) {
+    let dog = {};
+    dog.name = argName;
+    dog.color = argColor;
+    dog.size = argSize;
+    dog.weight = argWeight;
+    dog.breed = argWeight;
+    return dog;
+}
+console.log(createDog("Fido III", "White", "Small", "1kg", "Chihuahua"));
