@@ -13,3 +13,12 @@ function nameLenght(name) {
 nameLenght("Eva");
 nameLenght("Víctor");
 nameLenght("Aintzane");
+
+// Conditional ternary operator 
+function getNameLenght(name) {
+    name.length > 5 ? "This name has more than 5 characters" : "This name has less or at least 5 characters";
+    return name;
+}
+console.log(getNameLenght("Eva"));
+console.log(getNameLenght("Víctor"));
+console.log(getNameLenght("Aintzane"));
