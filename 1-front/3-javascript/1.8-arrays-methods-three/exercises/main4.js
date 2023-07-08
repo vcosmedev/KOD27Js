@@ -1,0 +1,1 @@
+// Se necesita saber la edad promedio de las personas en la lista
