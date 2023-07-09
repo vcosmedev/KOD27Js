@@ -134,7 +134,7 @@ const people = [
   ];
 
 
-  const getAgeAverage = (age) => {
+  let getAgeAverage = (age) => {
     let ageSum = 0;
     let ageAverage = 0;
 
