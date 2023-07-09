@@ -140,9 +140,7 @@ let getAllNationalities = (nationalities) => {
         let getNationality = nationality.nat;
         return getNationality;
     })
-    return [...new Set(result)];
+    return result;
   }
 
   console.log(getAllNationalities(people));
-
-  // Descartar nacionalidades repetidas -> set() method
