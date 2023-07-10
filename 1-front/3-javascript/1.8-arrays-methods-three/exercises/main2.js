@@ -134,13 +134,16 @@ const people = [
       nat: "FR",
     },
   ];
-
-let getAllNationalities = (nationalities) => {
+  // getAllNationalities
+  let getAllNationalities = (nationalities) => {
     let result = nationalities.map((nationality) => {
-        let getNationality = nationality.nat;
-        return getNationality;
+      let getNationality = nationality.nat;
+      return getNationality;
     })
     return result;
   }
-
   console.log(getAllNationalities(people));
+  
+  // getAllNationalities2 with implicit return
+  let getAllNationalities2 = (nationalities) => nationalities.map((nationality) => nationality.nat);
+  console.log(getAllNationalities2(people));

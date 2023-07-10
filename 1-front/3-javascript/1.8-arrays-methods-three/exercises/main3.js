@@ -137,15 +137,14 @@ const people = [
       nat: "FR",
     },
   ];
-
+// getAllNationalitiesWithoutDuplicatedOnes
 let getAllNationalities = (nationalities) => {
     let result = nationalities.map((nationality) => {
         let getNationality = nationality.nat;
         return getNationality;
     })
-    return [...new Set(result)];
+    return [...new Set(result)]; 
+    // Descartar nacionalidades repetidas -> set() method
   }
-
   console.log(getAllNationalities(people));
-
-  // Descartar nacionalidades repetidas -> set() method
+  
