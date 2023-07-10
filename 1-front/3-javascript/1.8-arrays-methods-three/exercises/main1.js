@@ -133,7 +133,7 @@ const people = [
       nat: "FR",
     },
   ];
-
+  // createfullNameList
   let createFullNamesList = (people) => {
     let result = people.map((person) => {
         let fullName = `Hi! This is ${person.name.title} ${person.name.first} ${person.name.last} and I am ${person.dob.age} years old :)`;
@@ -141,15 +141,22 @@ const people = [
     })
     return result;
   }
-
   console.log(createFullNamesList(people));
 
+  // createFullNameList2 with implicit return
+  let createFullNameList2 = (people) => people.map((person) => `Hi! This is ${person.name.title} ${person.name.first} ${person.name.last} and I am ${person.dob.age} years old :) with implicit return`);
+  console.log(createFullNameList2(people));
+
+  // createPeopleNationalityList
   let createPeopleNationalityList = (people) => {
     let result = people.map((person) => {
-        let nationality = `Hi! This is ${person.name.first} and I am from ${person.nat}`;
-        return nationality;
+      let nationality = `Hi! This is ${person.name.first} and I am from ${person.nat}`;
+      return nationality;
     })
     return result;
   }
-
   console.log(createPeopleNationalityList(people));
+  
+  // createPeopleNationalityList2 wit implicit return
+  let createPeopleNationalityList2 = (people) => people.map((person) => `Hi! This is ${person.name.first} and I am from ${person.nat} with implicit return`);
+  console.log(createPeopleNationalityList2(people));
