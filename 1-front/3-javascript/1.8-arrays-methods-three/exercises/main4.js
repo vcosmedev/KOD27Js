@@ -133,7 +133,7 @@ const people = [
     },
   ];
 
-
+  // getAgeAverage with 'for'
   let getAgeAverage = (age) => {
     let ageSum = 0;
     let ageAverage = 0;
@@ -147,3 +147,12 @@ const people = [
   }
 
   console.log(getAgeAverage(people)); // 49.8
+
+  // getAverageAge with 'forEach()'
+  let getAverageAgeForEach = (people) => {
+    averageAge = 0;
+    people.forEach((person) => averageAge += ages.dob.age);
+    averageAge /= people.length;
+    return averageAge; 
+  }
+  console.log(getAgeAverage(people));
