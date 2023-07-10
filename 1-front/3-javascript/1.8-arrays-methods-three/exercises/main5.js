@@ -146,7 +146,7 @@ const people = [
 
 //   console.log(countCharFullName(people));
 
-
+  // countcharFullName return only Full Names
   let countCharFullName = (people) => {
     let result = people.filter((person) => {
         let fullName = (`${person.name.first} ${person.name.last}`).split(" ").join(""); // split() and join() methods
@@ -158,3 +158,41 @@ const people = [
     });
   }
   console.log(countCharFullName(people));
+
+  // countcharFullName return only Full Names with forEach()
+  let countCharFullNameForEach = (people) => {
+    let filteredPeople = [];
+    people.forEach((person) => {
+      let fullName = (`${person.name.first} ${person.name.last}`).split(" ").join("");
+      fullName.length <= 10 && filteredPeople.push(person);
+    });
+    return filteredPeople.map((person) => {
+      return `${person.name.first} ${person.name.last}`
+    })
+  }
+  console.log(countCharFullNameForEach(people));
+
+
+  // countcharFullName return object Full Names
+  let countCharFullNameObj = (people) => {
+    let result = people.filter((person) => {
+        let fullName = (`${person.name.first} ${person.name.last}`).split(" ").join(""); // split() and join() methods
+        // let fullName = (`${person.name.first} ${person.name.last}`).replace(/ /g, ""); // replace() method with regex
+        return fullName.length <= 10;
+    })
+    return result;
+  }
+  console.log(countCharFullNameObj(people));
+
+
+ // countcharFullName return object Full Names with forEach()
+ let countCharFullNameObjForEach = (people) => {
+  let filteredPeople = [];
+  people.forEach((person) => {
+      let fullName = (`${person.name.first} ${person.name.last}`).split(" ").join(""); // split() and join() methods
+      // let fullName = (`${person.name.first} ${person.name.last}`).replace(/ /g, ""); // replace() method with regex
+      fullName.length <= 10 && filteredPeople.push(person);
+    })
+    return filteredPeople;
+}
+console.log(countCharFullNameObjForEach(people));
