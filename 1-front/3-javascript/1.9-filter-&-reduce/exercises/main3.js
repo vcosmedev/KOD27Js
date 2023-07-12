@@ -1,0 +1,1 @@
+// Se necesita obtener la información de un personaje específico con base en su ID

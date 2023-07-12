@@ -152,6 +152,7 @@ const people = [
     let result = people.map((person) => {
       let nationality = `Hi! This is ${person.name.first} and I am from ${person.nat}`;
       return nationality;
+      // return directo de nationality
     })
     return result;
   }

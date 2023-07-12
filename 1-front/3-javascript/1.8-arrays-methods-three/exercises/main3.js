@@ -138,13 +138,11 @@ const people = [
     },
   ];
 // getAllNationalitiesWithoutDuplicatedOnes
-let getAllNationalities = (nationalities) => {
-    let result = nationalities.map((nationality) => {
-        let getNationality = nationality.nat;
-        return getNationality;
-    })
+let getAllNationalities = (peopleArray) => {
+    let result = peopleArray.map((person) => person.nat);
     return [...new Set(result)]; 
     // Descartar nacionalidades repetidas -> set() method
   }
   console.log(getAllNationalities(people));
-  
+
+  // Factorizar función anterior
