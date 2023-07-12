@@ -328,10 +328,6 @@ console.log(getAverage(products));
 // filter()
 // find() -> Encuentra el primer elemento que se esté buscando
 
-// const getProductById = (arrayProducts) => arrayProducts.filter((item) => item.id);
-// let productsById = getProductById(products, 10);
-// console.log(productsById);
-
 const getProductById = ( products, id )=>{
     return products.filter(( item )=>{
         return item.id === id;
