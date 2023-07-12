@@ -308,13 +308,6 @@ console.log(briefDescription);
 
 // 5- Se necesita saber la cantidad promedio de votos para todos los productos -> count
 // reduce()
-// const getAverageVotes = (arrayProducts) => arrayProducts.reduce((accum, curr) => {
-//     return acum + curr.rating.count;
-// },0);
-
-// let averageResult = getAverageVotes(products);
-// console.log(averageResult);
-
 const getAverage = ( products ) => {
     let suma =  products.reduce(( accum, curr )=>{
         return accum + curr.rating.count;
