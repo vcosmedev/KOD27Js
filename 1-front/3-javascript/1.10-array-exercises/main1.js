@@ -321,12 +321,16 @@ console.log(getAverage(products));
 // filter()
 // find() -> Encuentra el primer elemento que se esté buscando
 
-const getProductById = ( products, id )=>{
-    return products.filter(( item )=>{
+const getProductById1 = (products, id) => {
+    return products.filter((item) => {
         return item.id === id;
     })[0];
 }
-console.log(getProductById(products, 20));
+console.log(getProductById1(products, 18));
 
-const getProductById2 = ( products, id )=> products.filter(( item )=> item.id === id)[0];
-console.log(getProductById2(products, 20));
+const getProductById2 = (products, id) => products.filter((item) => item.id === id)[0];
+console.log(getProductById2(products, 19));
+
+const getProductById3 = (products, productId) => products.filter(({id}) => productId === id)[0];
+let productById3 = getProductById3(products, 20);
+console.log(productById3);
