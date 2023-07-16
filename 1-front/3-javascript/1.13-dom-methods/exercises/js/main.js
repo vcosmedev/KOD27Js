@@ -271,11 +271,14 @@ let products = [
 // 1- Crear lista en nuestra UI que muestre los nombres de todos los productos disponibles
 
 const createProductsListItem = (content) => {
+    
     let allProducts = document.createElement("ul");
     let productsListItem = document.createElement("li");
+    
     let productItemName = document.createTextNode(content);
     productsListItem.appendChild(productItemName);
     allProducts.appendChild(productsListItem);
+
     return allProducts;
 };
 
@@ -289,3 +292,36 @@ const printProductsList = (productsArray, listTitle) => {
 printProductsList(products, "products-list");
 
 // 2- Crear table en nuestra UI que muestre el nombre, categoría y precio de cada uno de nuestros productos
+
+const createProductTable = (title, category, price) => {
+
+    let container = document.createElement("tr");
+
+    let productNameItem = document.createElement("td");
+    let productCategoryItem = document.createElement("td");
+    let productPriceItem = document.createElement("td");
+
+    let productTitleText = document.createTextNode(title);
+    let productCategoryText = document.createTextNode(category);
+    let productPriceText = document.createTextNode(price);
+
+    productNameItem.appendChild(productTitleText);
+    productCategoryItem.appendChild(productCategoryText);
+    productPriceItem.appendChild(productPriceText);
+
+    container.appendChild(productNameItem);
+    container.appendChild(productCategoryItem);
+    container.appendChild(productPriceItem);
+
+    return container;
+}
+
+const printProductsTable = (productsArray, tableItems) => {
+    let tableList = document.getElementById(tableItems);
+    productsArray.forEach((product) => {
+        let listItem = createProductTable(product.title, product.category, product.price);
+        tableList.appendChild(listItem);
+    })
+}
+
+printProductsTable(products, "table-products");
