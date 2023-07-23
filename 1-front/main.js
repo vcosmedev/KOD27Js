@@ -15,3 +15,13 @@ function oddsSum(numbers) {
     return sum;
   }
   console.log(oddsSum(numbers));
+
+//   Crear una función que reciba un array de palabras y devuelva true si todas las palabras terminan con 
+//   la letra "a" y false si al menos una palabra no termina con la letra "a".
+
+words = ["Silla", "Cama", "Agua", "Manta", "Sábana"];
+
+function acabanEnA(words) {
+    return words.every( word => (word.charAt(word.length - 1)) === "a" ? true : false)};
+
+console.log(acabanEnA(words));
