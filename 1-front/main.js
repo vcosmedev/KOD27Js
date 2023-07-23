@@ -20,8 +20,12 @@ function oddsSum(numbers) {
 //   la letra "a" y false si al menos una palabra no termina con la letra "a".
 
 words = ["Silla", "Cama", "Agua", "Manta", "Sábana"];
+words2 = ["Almohada", "Lámpara", "Maceta", "Mesa", "Escritorio"];
 
-function acabanEnA(words) {
-    return words.every( word => (word.charAt(word.length - 1)) === "a" ? true : false)};
-
-console.log(acabanEnA(words));
+function endWithA(words) {
+    return words.every( word => (word.charAt(word.length - 1)) === "a")};
+console.log(endWithA(words));
+function endWithA2(words) {
+    return words.every( word => (word.endsWith("a")));
+}
+console.log(endWithA2(words2));
