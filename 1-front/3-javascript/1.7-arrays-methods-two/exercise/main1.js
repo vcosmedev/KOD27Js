@@ -267,7 +267,7 @@ let products = [
     },
   ];
   
-// Obtener coste promedio de los productos
+// 1.- Obtener coste promedio de los productos
 const getAveragePrice = (productArr) => {
     let priceSum = 0;
     let priceAverage = 0;
@@ -282,7 +282,7 @@ const getAveragePrice = (productArr) => {
 
 console.log(getAveragePrice(products));
 
-// Obtener lista de productos cuya valoración sea > 4
+// 2.- Obtener lista de productos cuya valoración sea > 4
 
 const getProductRate = (productArr) => {
     let rateProduct = [];
@@ -294,6 +294,7 @@ const getProductRate = (productArr) => {
 }
 
 console.log(getProductRate(products));
+// 3.- Obtener lista de productos cuya valoración sea > 4, nombre del producto y rating
 const getProductRateFiltered = (productArr) => {
     let rateProduct = [];
     for (let i = 0; i < productArr.length; i++) {
@@ -304,6 +305,7 @@ const getProductRateFiltered = (productArr) => {
 }
 
 console.log(getProductRateFiltered(products));
+// 4.- Obtener lista de productos cuya categoría sea "electronics"
 const getProductCategory = (productArr, category) => {
     let categoryProduct = [];
     for (let i = 0; i < productArr.length; i++) {
