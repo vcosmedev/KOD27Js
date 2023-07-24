@@ -93,7 +93,7 @@ length > 5
 "Guadalupe" // -> false
 
 /* Se requiere una lista que contenga nombres largos (>5) y que comiencen con vocal */
-length > 5 && firstCharacter = ["aeiou"];
+// length > 5 && firstCharacter = ["aeiou"];
 
 "Israel" // -> true -> se va al array
 "Nefer" // -> false
