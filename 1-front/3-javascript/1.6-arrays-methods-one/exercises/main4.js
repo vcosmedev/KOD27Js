@@ -1,4 +1,4 @@
-// Teniendo en cuenta el array 'countries', se requiere obtener un string que esté formado
+// 4.- Teniendo en cuenta el array 'countries', se requiere obtener un string que esté formado
 // con la primera letra de cada país incluido en el array 
 // Mexico Alemania -> MA
 

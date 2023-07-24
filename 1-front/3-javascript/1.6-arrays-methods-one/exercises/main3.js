@@ -1,4 +1,4 @@
-// Teniendo en cuenta el array 'numbers', se requiere obtener un 
+// 3.- Teniendo en cuenta el array 'numbers', se requiere obtener un 
 // nuevo array que incluya únicametne los números impares
 
 const numbers = [12, 26, 15, 78, 26, 47];

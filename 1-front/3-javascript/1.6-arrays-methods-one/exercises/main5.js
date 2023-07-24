@@ -1,4 +1,4 @@
-// Se requiere obtener un array que contenga los mismos nombres de cada país,
+// 5.- Se requiere obtener un array que contenga los mismos nombres de cada país,
 // pero escritos en mayúsculas
 
 const countries = ["México", "Canadá", "Brasil", "España"];
