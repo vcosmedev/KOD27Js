@@ -1,4 +1,4 @@
-// Crear función que reciba el nombre, color, tamaño, peso y raza 
+// 3- Crear función que reciba el nombre, color, tamaño, peso y raza 
 // de un perro y devuelva un objeto que represente a ese perro
 
 function getDog(name, color, size, weight, breed) {
