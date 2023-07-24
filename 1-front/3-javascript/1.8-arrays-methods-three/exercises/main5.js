@@ -1,4 +1,4 @@
-// Se necesita una lista con aquellas personas cuyo nombre completo tenga 
+// 5.- Se necesita una lista con aquellas personas cuyo nombre completo tenga 
 // igual o menos de 10 caracteres
 
 const people = [

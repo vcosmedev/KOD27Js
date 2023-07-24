@@ -1,4 +1,4 @@
-// Se necesita una lista con las nacionalidades pero en este caso sin las nacionalidades
+// 3.- Se necesita una lista con las nacionalidades pero en este caso sin las nacionalidades
 // repetidas -> Remove las nacionalidades repetidas ****
 
 // Se necesita obtener una lista con las nacionalidades que se encuentran actualmente

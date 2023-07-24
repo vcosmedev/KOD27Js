@@ -1,4 +1,4 @@
-// Se necesita saber la edad promedio de las personas en la lista
+// 4.- Se necesita saber la edad promedio de las personas en la lista
 
 const people = [
     {
@@ -151,7 +151,7 @@ const people = [
   // getAverageAge with 'forEach()'
   let getAverageAgeForEach = (people) => {
     averageAge = 0;
-    people.forEach((person) => averageAge += ages.dob.age);
+    people.forEach(() => averageAge += ages.dob.age);
     averageAge /= people.length;
     return averageAge; 
   }
