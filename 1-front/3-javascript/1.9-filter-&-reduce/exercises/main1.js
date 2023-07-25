@@ -1,4 +1,4 @@
-// Se necesita una lista con las diferentes especies que existen en estos personajes
+// 1.- Se necesita una lista con las diferentes especies que existen en estos personajes
 
 let data = [
     {

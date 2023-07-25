@@ -1,4 +1,4 @@
-// Se necesita una lista con aquellos personajes cuya especie sea "Human"
+// 2.- Se necesita una lista con aquellos personajes cuya especie sea "Human"
 
 let data = [
     {
@@ -650,11 +650,3 @@ let data = [
   const getHumans = (specie) => data.filter( item => item.species === specie );
   console.log(getHumans('Human'));
   
-  // Ejer 3
-  const selectId = (id) => data.filter( item => item.id === id);
-  console.log(selectId(3));
-  console.log(selectId(11));
-  console.log(selectId(19));
-
-// const getActor = ( id, data) => data.filter(( item )=> item.id === id)
-// console.log(getActor(10,data))
