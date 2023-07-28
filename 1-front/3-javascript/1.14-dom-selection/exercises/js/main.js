@@ -1,4 +1,4 @@
-// 1- Imprimir nombre cmpleto de los Koders en una lista
+// 1- Imprimir nombre completo de los Koders en una lista
 
 // 2- Impresa la lista, todos los Koders en posición par que tengan un color y 
 // todos los Koders en posición impar que tengan otro color

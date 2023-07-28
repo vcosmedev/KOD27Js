@@ -1,0 +1,89 @@
+/* 1- Selector universal */
+* {
+    font-family: arial;
+}
+
+/* 2- Selector por tagname */
+li {
+    padding: 1rem;
+}
+
+/* 3- Selector por clase '.' */
+.form-control {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 4- Selector por ID '#' */
+#kodersList {
+    box-shadow: 5px 5px 5px #dadada;
+}
+
+/* 5- Selector por anidación */
+/* ¿Cuántos niveles trasciende un selector por anidación? */
+/* Selecciona todos los li que estén dentro de koders-list sin importar el nivel de anidación */
+#koders-list li {
+    color: peru;
+}
+
+/* 6- Selector de descendiente directo > */
+/* Únicamente selecciona aquellos 'li' que sean descendientes directos de koders-list */
+/* Afecta únicamente a aquellos elementos de primer nivel */
+#koders-list>li {
+    background-color: purple;
+}
+
+
+/* 7- Pseudoclases o pseudoselectores */
+/* :first-child */
+/* Selecciona aquel elemento que sea primer hijo */
+#koders-list li:first-child {
+    text-transform: uppercase;
+}
+
+/* :last-child */
+/* Selecciona aquel elemento que sea último hijo */
+#kdoers-list li:last-child {
+    text-decoration: underline;
+}
+
+/* Selecciona solamente los pares */
+/* nth significa 'enésimo' */
+#koders-list li:nth-child(even) {
+    color: wheat;
+}
+
+/* Selecciona solamente los impares */
+/* nth significa 'enésimo' */
+#koders-list li:nth-child(odd) {
+    color: aquamarine;
+}
+
+/* Selecciona solamente el tercer elemento */
+/* nth significa 'enésimo' */
+#koders-list li:nth-child(3) {
+    color: rgb(3, 46, 32);
+}
+
+/* Selecciona cada tres elementos */
+/* nth significa 'enésimo' */
+#koders-list li:nth-child(3n) {
+    color: rgb(102, 5, 237);
+}
+
+/* Seleccionar elementos que no tengan cierta característica */
+#koders-list li:not(active) {
+    background-color: rgb(252, 0, 197);
+}
+
+/* Seleccionar elementos que tengan cierta característica, ejemplo: que estén después de X condición */
+/* Dentro de mentors-list cuyo punto de referncia es 'li.active' y de este elemento selecciona el elemento que esté despues de  */
+#mentors-list li.active+li {
+    text-decoration: underline;
+}
+
+/* Diferencia entre '+' y '~' */
+/* + -> selecciona únicamente el elemento adyacente, el elemento inmediato siguiente al que tiene cierta clase */
+/* ~ -> selecciona todos los elementos adyacentes que estén después de cierta característica */
+#mentors-list li.active~li {
+    font-style: italic;
+}
