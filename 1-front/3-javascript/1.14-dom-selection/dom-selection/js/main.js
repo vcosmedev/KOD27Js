@@ -28,7 +28,7 @@ const getAllInputs = () => {
     let inputs = document.getElementsByTagName("li");
     console.log(inputs);
 }
-getAllInputs(); /* Devuelve html collection con las entradas que se tengan que presentan cada uno de los inputs que se tienen */
+getAllInputs(); /* Devuelve HTMLCollection con las entradas que se tengan que presentan cada uno de los inputs que se tienen */
 
 // document.querySelector(cssSelector)
 // Permite seleccionar el primer elemento que cumpla con el selector de CSS provisto como argumento
@@ -37,3 +37,24 @@ getAllInputs(); /* Devuelve html collection con las entradas que se tengan que p
 // document.querySelectorAll(cssSelector)
 // Permite seleccionar todos los elementos que cumplan con el eleccionar todos los elementos que cumplan con el selector de css provisto como argumento
 // Devuelve una NodeList
+
+/* Método 'add' para añadir clases -> .classList.add("bg-dark, "text-white") */
+document.querySelectorAll('li');
+let listItemsAdd = document.querySelectorAll('li');
+listItemsAdd.forEach(item => {
+    item.classList.add("bg-dark");
+});
+
+/* Método 'remove' para remover clases -> .classList.remove("bg-dark") */
+document.querySelectorAll('li');
+let listItemsRemove = document.querySelectorAll('li');
+listItemsRemove.forEach(item => {
+    item.classList.add("bg-dark");
+});
+
+/* Método 'toggle' (conmutar): si no tiene la clase la pone, si sí la tiene la quita -> .classList.toggle("class-name-example") */
+document.querySelectorAll('li');
+let listItemsToggle = document.querySelectorAll('li');
+listItemsToggle.forEach(item => {
+    item.classList.add("bg-dark");
+});
