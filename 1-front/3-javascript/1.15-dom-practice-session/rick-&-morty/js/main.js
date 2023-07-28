@@ -637,19 +637,23 @@ let rickNMorty = [
     },
   ];
 
+/*   1-· Mostrar cards con cada uno de los personajes, nombre y episodio */
   const createCharacterCard = (characterObject) => {
     
     let { image, name, episode } = characterObject;
 
     let container = document.createElement("div");
-    container.classList.add("card");
+    container.classList.add("col-sm-6", "col-md-4", "mb-3");
 
-    let characterImgItem = document.createElement("img");
-    characterImgItem.classList.add("card-img-top");
-    characterImgItem.src = image;
-
+    let cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    
     let characterFeaturesItem = document.createElement("div");
     characterFeaturesItem.classList.add("card-body");
+
+    let characterImgItem = document.createElement("img");
+    characterImgItem.classList.add("card-img-top", "rounded", "mb-2");
+    characterImgItem.src = image;
 
     let characterNameItem = document.createElement("h5");
     characterNameItem.classList.add("card-text");
@@ -659,10 +663,11 @@ let rickNMorty = [
     characterEpisodeItem.classList.add("card-text");
     characterEpisodeItem.innerText = `# ${episode.length}`;
 
-    characterFeaturesItem.appendChild(characterEpisodeItem);
+    characterFeaturesItem.appendChild(characterImgItem);
     characterFeaturesItem.appendChild(characterNameItem);
-    characterImgItem.appendChild(characterFeaturesItem);
-    container.appendChild(characterImgItem);
+    characterFeaturesItem.appendChild(characterEpisodeItem);
+    cardElement.appendChild(characterFeaturesItem);
+    container.appendChild(cardElement);
 
     return container;
   }
@@ -676,3 +681,17 @@ let rickNMorty = [
   }
 
   printRNMCharacters(rickNMorty);
+
+// 2-· Ordenar personajes según su cantidad de episodios
+  const orderByNumberOfEpisodes = (rickNMorty) => {
+    rickNMorty.sort((a,b) => a["episode"].length - b["episode"].length);
+    
+    const charactersCard = document.getElementById("rickNMorty-card");
+    charactersCard.innerText = '';
+
+    printRNMCharacters(rickNMorty);
+  };
+  console.log(orderByNumberOfEpisodes(rickNMorty));
+
+
+// Para poner en la consola => orderByCountEpisodies(rickyAndMorty)
