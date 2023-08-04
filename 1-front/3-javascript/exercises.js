@@ -52,7 +52,12 @@ triángulo como el siguiente:
 ***
 ****
 *****
-Solamente se imprime en consola */
+
+1-Solamente se imprime en consola 
+2- Representar en filas
+3- Represetnar en columnas 
+4- Representar en columnas bidimensinoales (gráfica de barras)
+*/
 
 const triangle = (size) => {
     let line = '';
@@ -107,3 +112,15 @@ const findRepeatedProperties = (colors) => {
     return colorsCount;
 }
 console.log(findRepeatedProperties(colors));
+
+
+/* 
+Tengo un array de números 1,2,3,4,5
+El resultado debe ser:
+
+1,2,3,4,5,4,3,2,1
+
+NO USAR MÉTODO DE ARRAY
+
+Dependiendo de si el número es par o impar, ojo a esto
+*/
