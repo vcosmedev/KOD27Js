@@ -33,3 +33,6 @@ const names = process.argv.slice(2);
 names.forEach((name) => {
     console.log(`Hello ${name} with slice :)`)
 });
+
+// ¿Qué podemos hacer con Node?
+
