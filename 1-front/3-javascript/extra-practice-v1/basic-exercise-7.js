@@ -1,0 +1,1 @@
+/* 7-· Escribir función que genere grupos a partir de un arreglo dado */
