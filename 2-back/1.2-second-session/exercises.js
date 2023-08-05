@@ -1,30 +1,3 @@
-// // EXERCISE 1
-// // Índice 1 e índice 2 es información del sistema en process.argv
-// function reverseString(str) {
-//     let newStr = "";
-
-//     for (let i = str.length - 1; i>=0; i--) {
-//         newStr += str[i];
-//     }
-//     return newStr;
-// }
-// console.log(reverseString(process.argv[2]));
-
-// // Refactor previous function
-
-// const reversedString = (str) => {
-
-// }
-
-
-// process.argv.forEach((name, index) => index > 1 && console.log(name.split('').reverse().join('')));
-
-// const word = process.argv[2];
-// const reversedWord = word.split('').reverse().join('');
-// console.log(reversedWord);
-// process.exit(0) // Buena práctica
-
-
 // EXERCISE 2
 // Regresar si el número ingresado es par o impar
 
