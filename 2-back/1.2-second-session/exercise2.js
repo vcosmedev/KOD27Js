@@ -44,7 +44,7 @@ const evenOrOdd = () => {
  console.log(message);
  process.exit(0);
 
- // Execute in console:
+ // Console:
  // node exercise2.js fadaf && echo 'All good :)' -> Please, you must insert a number
  // node exercise2.js 19 && echo 'All good :)' -> It's an odd number | All good :)
  // node exercise2.js 12 && echo 'All good :)' -> It's an even number | All good :)
