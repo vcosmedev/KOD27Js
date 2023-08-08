@@ -82,4 +82,6 @@ Para los casos de otros manejadores de paquetes, este archivo se llamaría segú
 <pnpm-log.json>
 <ultra-log.json>
 
+Licencias más comunes Node Project: MIT / ISC
+
 */

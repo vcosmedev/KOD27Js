@@ -1,0 +1,23 @@
+{
+  "name": "myfirstnodeproject",
+  "version": "1.0.0",
+  "description": "My First Node Project 3rd Session",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "",
+    "start": "node index.js",
+    "hello": "echo 'Hello World 🌎'",
+    "my-first-script": "ls"
+  },
+  "keywords": [
+    "project",
+    "node",
+    "js"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
