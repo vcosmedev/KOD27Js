@@ -66,4 +66,6 @@ Archivo 'package.json' -> archivo descriptor de un proyecto.
     Cuando se descarga una dependencia se está descargando su código fuente para poder ejecutarlo.
     El código fuente que se descarga se almacena en la carpeta 'node_modules'
 
+    - Desinstalar dependencias:
+        -> npm uninstall <packageName>
 */
