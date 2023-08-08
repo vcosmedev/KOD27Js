@@ -56,9 +56,8 @@ Archivo 'package.json' -> archivo descriptor de un proyecto.
             * DEBE ESTAR EN EL MÓDULO DE .gitignore
 */
 
-
-
 /* 
+
 -> SECCIÓN 'dependencies' EN UN DOCUMENTO package.json: 
     - dependencies -> llave / key
     - ejecutando 'npm i' o 'npm install' se instala todos los paquetes contengan las dependencias

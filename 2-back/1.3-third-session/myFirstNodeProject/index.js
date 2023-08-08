@@ -52,7 +52,6 @@ while (true) {
   namesList.push(name);
 }
 
-// let allNames = namesList;
 let namesNumbers = countNames(namesList);
 let longestName = findLongestName(namesList);
 let shortestName = findShortestName(namesList);
