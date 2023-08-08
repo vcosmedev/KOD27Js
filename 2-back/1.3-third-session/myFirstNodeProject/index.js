@@ -31,25 +31,25 @@ let namesList = [];
 const countNames = (namesList) => namesList.length;
 
 const findLongestName = (namesList) =>
-  namesList.reduce(
-    (longest, current) =>
-      current.length >= longest.length ? current : longest,
-    namesList[0]
-  );
+    namesList.reduce(
+        (longest, current) =>
+            current.length >= longest.length ? current : longest,
+        namesList[0]
+    );
 
 const findShortestName = (namesList) =>
-  namesList.reduce(
-    (shortest, current) =>
-      current.length <= shortest.length ? current : shortest,
-    namesList[0]
-  );
+    namesList.reduce(
+        (shortest, current) =>
+            current.length <= shortest.length ? current : shortest,
+        namesList[0]
+    );
 
 while (true) {
-  const name = prompt(
-    'Please, enter your name (or leave empty space to finish): '
-  );
-  if (name === '') break;
-  namesList.push(name);
+    const name = prompt(
+        'Please, enter your name (or leave empty space to finish): '
+    );
+    if (name === '') break;
+    namesList.push(name);
 }
 
 let namesNumbers = countNames(namesList);
