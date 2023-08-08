@@ -67,4 +67,5 @@ Archivo 'package.json' -> archivo descriptor de un proyecto.
 
     - Desinstalar dependencias:
         -> npm uninstall <packageName>
+
 */
