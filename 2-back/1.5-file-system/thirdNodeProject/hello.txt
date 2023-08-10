@@ -1,1 +1,3 @@
-Hello from Node 💚
+Hello from Node 💚 
+Data to append from udpate.js
+Data updated using appendFileSync
