@@ -201,7 +201,7 @@ const under18 = koders.reduce((total, curr) => {
 console.log(`Número de Koders menores de edad: ${under18}`);
 
 // find()
-// Ejemplo 4: sse requiere encontrar al koder con id 15
+// Ejemplo 4: se requiere encontrar al koder con id 15
 const koderId15 = koders.reduce((total, curr) => {
     if (curr.id === 15) {
         total = curr;
@@ -210,4 +210,8 @@ const koderId15 = koders.reduce((total, curr) => {
 }, {});
 console.log('Koder con ID 15: ', koderId15);
 
+// some()
 // Ejemplo 5: se requiere saber si algunos de los koders tienen correo con gmail
+
+// every()
+// Ejemplo 6: se requiere saber si todos los koders son mayores de edad
