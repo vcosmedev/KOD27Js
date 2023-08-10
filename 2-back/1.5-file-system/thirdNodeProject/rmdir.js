@@ -8,3 +8,5 @@ removeDirSync ? console.log('Eliminado con éxito carpeta vacía') : null;
 // add example
 
 // Borrar una carpeta que contenga archivos
+const rmDirSyncFile = fs.rmdirSync('./rm-directory-files', { recursive: true });
+rmDirSyncFile ? console.log('Directory with files removed') : null;
