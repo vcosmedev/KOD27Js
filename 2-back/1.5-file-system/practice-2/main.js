@@ -21,19 +21,22 @@ const add = (koder) => {
     fs.writeFileSync(db, JSON.stringify(listAsObject), {
         encoding: 'utf-8',
     });
-    console.log('Koder added successfully 👨🏼‍💻✅');
+    console.log(`Koder "${koder}" added successfully 👨🏼‍💻✅`);
     console.log(listAsObject);
 };
 
-const remove = (koderName) => {
-    !listAsObject.find((koder) => koder.name === koderName)
-        ? console.log(`Sorry, no ${koderName} records were found`)
+const remove = (koderToRemove) => {
+    !listAsObject.find((koder) => koder.name === koderToRemove)
+        ? console.log(`Sorry, no ${koderToRemove} records were found`)
         : null;
-    let deleteKoder = listAsObject.filter((koder) => koder.name != koderName);
+    let deleteKoder = listAsObject.filter(
+        (koder) => koder.name != koderToRemove
+    );
     fs.writeFileSync(db, JSON.stringify(deleteKoder), {
         encoding: 'utf-8',
     });
-    console.log('Koder deleted successfully 👋🏻✅');
+    console.log(`Koder "${koderToRemove}" deleted successfully 👋🏻✅`);
+    console.log(listAsObject);
 };
 
 // const rm = fs.rmSync('')
