@@ -23,7 +23,7 @@ const add = (koderToAdd) => {
     fs.writeFileSync(db, JSON.stringify(listAsObject), {
         encoding: 'utf-8',
     });
-    console.log(`Koder "${koderToAdd}" added successfully 👨🏼‍💻✅`);
+    console.log(`Koder "${koderToAdd}" was added successfully 👨🏼‍💻✅`);
     console.log(listAsObject);
 };
 
@@ -37,9 +37,9 @@ const remove = (koderToRemove) => {
         fs.writeFileSync(db, JSON.stringify(deleteKoder), {
             encoding: 'utf-8',
         });
-        console.log(`Koder "${koderToRemove}" deleted successfully 👋🏻✅`);
+        console.log(`Koder "${koderToRemove}" was deleted successfully 👋🏻✅`);
+        console.log(deleteKoder);
     }
-    console.log(listAsObject);
 };
 
 switch (action) {
