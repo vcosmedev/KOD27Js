@@ -10,7 +10,7 @@ const createDb = (file) => {
     fs.writeFileSync(file, '[]', { encoding: 'utf-8' });
 };
 
-fs.existsSync(db) ? console.log('This file already exists') : createDb(db);
+!fs.existsSync(db) ? createDb(db) : null;
 
 const list = fs.readFileSync(db, { encoding: 'utf-8' });
 const contentAsObj = JSON.parse(list);
