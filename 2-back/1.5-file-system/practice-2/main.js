@@ -14,20 +14,20 @@ const list = fs.readFileSync(db, { encoding: 'utf-8' });
 const contentAsObj = JSON.parse(list);
 console.log('List koders: ', contentAsObj);
 
-const JSONlist = JSON.parse(list);
+const listAsObject = JSON.parse(list);
 
 const add = (koder) => {
-    JSONlist.push({ name: koder });
-    fs.writeFileSync(db, JSON.stringify(JSONlist), {
+    listAsObject.push({ name: koder });
+    fs.writeFileSync(db, JSON.stringify(listAsObject), {
         encoding: 'utf-8',
     });
 };
 
 const remove = (koderName) => {
-    !JSONlist.find((koder) => koder.name === koderName)
+    !listAsObject.find((koder) => koder.name === koderName)
         ? console.log(`No se encontraron registros del koder ${koderName}`)
         : null;
-    let deleteKoder = JSONlist.filter((koder) => koder.name != koderName);
+    let deleteKoder = listAsObject.filter((koder) => koder.name != koderName);
     fs.writeFileSync(db, JSON.stringify(deleteKoder), {
         encoding: 'utf-8',
     });
@@ -37,6 +37,9 @@ const remove = (koderName) => {
 // const rm = fs.rmSync('')
 
 switch (action) {
+    case 'db':
+        console.log(dbFile(db));
+        break;
     case 'ls':
         list;
         break;
