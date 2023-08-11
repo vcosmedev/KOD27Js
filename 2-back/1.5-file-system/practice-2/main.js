@@ -27,7 +27,7 @@ const add = (koderToAdd) => {
 
 const remove = (koderToRemove) => {
     !listAsObject.find((koder) => koder.name === koderToRemove)
-        ? console.log(`Sorry, no ${koderToRemove} records were found`)
+        ? console.log(`Sorry, no ${koderToRemove} koder records were found ❌`)
         : null;
     let deleteKoder = listAsObject.filter(
         (koder) => koder.name != koderToRemove
