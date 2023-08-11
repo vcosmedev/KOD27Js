@@ -42,12 +42,7 @@ const remove = (koderToRemove) => {
     console.log(listAsObject);
 };
 
-// const rm = fs.rmSync('')
-
 switch (action) {
-    case 'db':
-        createDb(db);
-        break;
     case 'ls':
         list;
         break;
@@ -58,6 +53,7 @@ switch (action) {
         remove(name);
         break;
     case 'reset':
+        createDb(db);
         break;
 
     default:
