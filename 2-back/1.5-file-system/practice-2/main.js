@@ -15,6 +15,15 @@ const add = (koder) => {
     fs.writeFileSync('./koders.json', JSON.stringify(JSONlist), 'utf-8');
 };
 
+const remove = (koderName) => {
+    !JSONlist.find((koder) => koder.name === koderName)
+        ? console.log(`No se encontraron registros del koder ${koderName}`)
+        : null;
+    let deleteKoder = JSONlist.filter((koder) => koder.name != koderName);
+    fs.writeFileSync('./koders.json', JSON.stringify(deleteKoder), 'utf-8');
+    console.log('Koder eliminado con éxito ✅');
+};
+
 // const rm = fs.rmSync('')
 
 switch (action) {
@@ -22,9 +31,10 @@ switch (action) {
         list;
         break;
     case 'add':
-        add(name);
+        console.log(add(name));
         break;
     case 'rm':
+        console.log(remove(name));
         break;
     case 'reset':
         break;
