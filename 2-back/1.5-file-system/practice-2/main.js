@@ -16,12 +16,12 @@ console.log('List koders: ', contentAsObj);
 
 const listAsObject = JSON.parse(list);
 
-const add = (koder) => {
-    listAsObject.push({ name: koder });
+const add = (koderToAdd) => {
+    listAsObject.push({ name: koderToAdd });
     fs.writeFileSync(db, JSON.stringify(listAsObject), {
         encoding: 'utf-8',
     });
-    console.log(`Koder "${koder}" added successfully 👨🏼‍💻✅`);
+    console.log(`Koder "${koderToAdd}" added successfully 👨🏼‍💻✅`);
     console.log(listAsObject);
 };
 
