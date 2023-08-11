@@ -26,16 +26,17 @@ const add = (koderToAdd) => {
 };
 
 const remove = (koderToRemove) => {
-    !listAsObject.find((koder) => koder.name === koderToRemove)
-        ? console.log(`Sorry, no ${koderToRemove} koder records were found ❌`)
-        : null;
-    let deleteKoder = listAsObject.filter(
-        (koder) => koder.name != koderToRemove
-    );
-    fs.writeFileSync(db, JSON.stringify(deleteKoder), {
-        encoding: 'utf-8',
-    });
-    console.log(`Koder "${koderToRemove}" deleted successfully 👋🏻✅`);
+    if (!listAsObject.find((koder) => koder.name === koderToRemove)) {
+        console.log(`Sorry, no ${koderToRemove} koder records were found ❌`);
+    } else {
+        let deleteKoder = listAsObject.filter(
+            (koder) => koder.name != koderToRemove
+        );
+        fs.writeFileSync(db, JSON.stringify(deleteKoder), {
+            encoding: 'utf-8',
+        });
+        console.log(`Koder "${koderToRemove}" deleted successfully 👋🏻✅`);
+    }
     console.log(listAsObject);
 };
 
