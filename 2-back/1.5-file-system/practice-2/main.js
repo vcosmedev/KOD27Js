@@ -21,6 +21,8 @@ const add = (koder) => {
     fs.writeFileSync(db, JSON.stringify(listAsObject), {
         encoding: 'utf-8',
     });
+    console.log('Koder added successfully 👨🏼‍💻✅');
+    console.log(listAsObject);
 };
 
 const remove = (koderName) => {
@@ -31,23 +33,23 @@ const remove = (koderName) => {
     fs.writeFileSync(db, JSON.stringify(deleteKoder), {
         encoding: 'utf-8',
     });
-    console.log('Koder eliminado con éxito ✅');
+    console.log('Koder eliminado con éxito 👋🏻✅');
 };
 
 // const rm = fs.rmSync('')
 
 switch (action) {
     case 'db':
-        console.log(dbFile(db));
+        dbFile(db);
         break;
     case 'ls':
         list;
         break;
     case 'add':
-        console.log(add(name));
+        add(name);
         break;
     case 'rm':
-        console.log(remove(name));
+        remove(name);
         break;
     case 'reset':
         break;
