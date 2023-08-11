@@ -5,10 +5,12 @@ const action = process.argv[2];
 const name = process.argv[3];
 
 const db = './koders.json';
-const dbFile = (file) => {
+
+const createDb = (file) => {
     fs.writeFileSync(file, '[]', { encoding: 'utf-8' });
-    fs.existsSync(db) ? console.log('This file already exists') : dbFile(db);
 };
+
+fs.existsSync(db) ? console.log('This file already exists') : createDb(db);
 
 const list = fs.readFileSync(db, { encoding: 'utf-8' });
 const contentAsObj = JSON.parse(list);
@@ -44,7 +46,7 @@ const remove = (koderToRemove) => {
 
 switch (action) {
     case 'db':
-        dbFile(db);
+        createDb(db);
         break;
     case 'ls':
         list;
