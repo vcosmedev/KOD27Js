@@ -4,7 +4,13 @@ const { json } = require('stream/consumers');
 const action = process.argv[2];
 const name = process.argv[3];
 
-const list = fs.readFileSync('./koders.json', 'utf8');
+const db = './koders.json';
+const dbFile = (file) => {
+    fs.writeFileSync(file, '[]', { encoding: 'utf-8' });
+    fs.existsSync(db) ? console.log('Este archivo ya existe') : dbFile(db);
+};
+
+const list = fs.readFileSync(db, { encoding: 'utf-8' });
 const contentAsObj = JSON.parse(list);
 console.log('List koders: ', contentAsObj);
 
@@ -12,7 +18,9 @@ const JSONlist = JSON.parse(list);
 
 const add = (koder) => {
     JSONlist.push({ name: koder });
-    fs.writeFileSync('./koders.json', JSON.stringify(JSONlist), 'utf-8');
+    fs.writeFileSync(db, JSON.stringify(JSONlist), {
+        encoding: 'utf-8',
+    });
 };
 
 const remove = (koderName) => {
@@ -20,7 +28,9 @@ const remove = (koderName) => {
         ? console.log(`No se encontraron registros del koder ${koderName}`)
         : null;
     let deleteKoder = JSONlist.filter((koder) => koder.name != koderName);
-    fs.writeFileSync('./koders.json', JSON.stringify(deleteKoder), 'utf-8');
+    fs.writeFileSync(db, JSON.stringify(deleteKoder), {
+        encoding: 'utf-8',
+    });
     console.log('Koder eliminado con éxito ✅');
 };
 
