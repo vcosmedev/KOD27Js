@@ -7,7 +7,7 @@ const name = process.argv[3];
 const db = './koders.json';
 const dbFile = (file) => {
     fs.writeFileSync(file, '[]', { encoding: 'utf-8' });
-    fs.existsSync(db) ? console.log('Este archivo ya existe') : dbFile(db);
+    fs.existsSync(db) ? console.log('This file already exists') : dbFile(db);
 };
 
 const list = fs.readFileSync(db, { encoding: 'utf-8' });
@@ -27,13 +27,13 @@ const add = (koder) => {
 
 const remove = (koderName) => {
     !listAsObject.find((koder) => koder.name === koderName)
-        ? console.log(`No se encontraron registros del koder ${koderName}`)
+        ? console.log(`Sorry, no ${koderName} records were found`)
         : null;
     let deleteKoder = listAsObject.filter((koder) => koder.name != koderName);
     fs.writeFileSync(db, JSON.stringify(deleteKoder), {
         encoding: 'utf-8',
     });
-    console.log('Koder eliminado con éxito 👋🏻✅');
+    console.log('Koder deleted successfully 👋🏻✅');
 };
 
 // const rm = fs.rmSync('')
