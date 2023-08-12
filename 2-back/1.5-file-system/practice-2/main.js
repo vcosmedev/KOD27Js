@@ -1,3 +1,4 @@
+const { create } = require('node:domain');
 const fs = require('node:fs');
 const { json } = require('stream/consumers');
 
@@ -13,10 +14,8 @@ const createDb = (file) => {
 !fs.existsSync(db) ? createDb(db) : null;
 
 const list = fs.readFileSync(db, { encoding: 'utf-8' });
-const contentAsObj = JSON.parse(list);
-console.log('List koders: ', contentAsObj);
-
 const listAsObject = JSON.parse(list);
+console.log('List koders: ', listAsObject);
 
 const add = (koderToAdd) => {
     listAsObject.push({ name: koderToAdd });
