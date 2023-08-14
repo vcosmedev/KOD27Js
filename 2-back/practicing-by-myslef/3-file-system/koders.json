@@ -1,0 +1,22 @@
+{
+    "koders": [
+        {
+            "id": 1,
+            "name": "Víctor",
+            "surname": "Cosme",
+            "age": 31
+        },
+        {
+            "id": 2,
+            "name": "Eu",
+            "surname": "Ruiz",
+            "age": 21
+        },
+        {
+            "id": 3,
+            "name": "Laura",
+            "surname": "López",
+            "age": 29
+        }
+    ]
+}
