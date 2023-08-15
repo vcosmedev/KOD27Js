@@ -1,9 +1,11 @@
 // Importar Express
 const express = require('express');
 
-const app = express(); // Crear server, invocando función
+// Crear servidor, invocando función
+const app = express();
 
-app.use(express.json()); // Añadir esta línea para que Express pueda parsear la info que recibe con el content-type JSON
+// Añadir '.use()' -> Express formatea información que recibe cuyo 'content-type' sea application/json
+app.use(express.json());
 
 let koders = [];
 
