@@ -34,5 +34,11 @@ Se denomina RESTful a un servicio que implementa la arquitectura REST
 
 EXPRESS ROUTING
 Router: conjunto de rutas/operaciones que están ordenadas de forma semántica
+Ver cada router como una pequeña parte de express, como un pequeño servidor 
+
+ENDPOINT
+Cada ruta que se escribe en Express se considera 'endpoint' (koder, mentor, generations, etc.) 
+-> punto final de una petición, donde muere la petición y nace la respuesta
+Un endpoint tiene DOS elementos: el método ('GET', por ejemplo) y la ruta ('/', por ejemplo)
 
 */
