@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 // Create Koder
-// Enpoint, controlador
+// Endpoint, controlador
 router.post('/', (req, res) => {
     // req.body -> representa un koder
     const { name, email, program, generation } = req.body;
