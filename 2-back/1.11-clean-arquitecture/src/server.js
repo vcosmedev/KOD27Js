@@ -1,8 +1,8 @@
 // DESCRIBIR y montar el servidor (guarda la definición del server, qué middlewares se van a usar, montar middlewares, montar routers)
 const express = require('express');
-const kodersRouter = require('./routes/koders');
-const mentorsRouter = require('./routes/mentors');
-const generationsRouter = require('./routes/generations');
+const kodersRouter = require('./routes/koders.router');
+const mentorsRouter = require('./routes/mentors.router');
+const generationsRouter = require('./routes/generations.router');
 
 const app = express();
 

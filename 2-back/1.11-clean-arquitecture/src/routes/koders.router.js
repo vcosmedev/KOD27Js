@@ -1,5 +1,5 @@
 const express = require('express');
-const koders = require('../useCases/koders.usecase');
+const koders = require('../useCases/koders.useCase');
 
 const router = express.Router();
 
