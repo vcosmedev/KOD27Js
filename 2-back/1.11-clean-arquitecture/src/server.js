@@ -1,7 +1,4 @@
-// Purpose: DESCRIBIR y montar el servidor
-// - Guarda la definición del server
-// - Qué middlewares se van a usar - montar middlewares
-// - Montar routers
+// DESCRIBIR y montar el servidor (guarda la definición del server, qué middlewares se van a usar, montar middlewares, montar routers)
 const express = require('express');
 const kodersRouter = require('./routes/koders');
 const mentorsRouter = require('./routes/mentors');
