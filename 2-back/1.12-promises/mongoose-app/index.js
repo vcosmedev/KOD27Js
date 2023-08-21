@@ -23,9 +23,12 @@ const koderSchema = new mongoose.Schema({
         required: true,
         minLength: 2,
         maxLenght: 10,
+        trim: true,
     },
     email: {
         type: String,
+        required: true,
+        trim: true,
     },
     program: {
         type: String,
