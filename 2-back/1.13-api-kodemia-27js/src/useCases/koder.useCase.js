@@ -2,12 +2,13 @@
 const Koder = require('../models/koder.model');
 
 // GET /koders
-async function getall() {
+async function getAll() {
     const allKoders = await Koder.find();
     return allKoders;
+    // return await Koder.find();
 }
 
-// GET /Koders
+// POST /Koders
 async function create(koderData) {
     const newKoder = await Koder.create(koderData); // Regresa promesa
     return newKoder;
@@ -20,4 +21,4 @@ function getById(id) {
     return koderFound;
 }
 
-module.exports = { getall, create, getById };
+module.exports = { getAll, create, getById };
