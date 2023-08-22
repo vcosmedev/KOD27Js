@@ -1,0 +1,31 @@
+// Import mongoose
+const mongoose = require('mongoose');
+
+const praticesSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    repository: {
+        type: String,
+        required: true,
+        trim: true,
+        match: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/,
+    },
+    // Relacionar modelos
+    // Modelo Prácticas está relacionado con modelo Koders. ¿Cómo se hace?
+    koder: {
+        // Esta propiedad tiene que ser un ID de otro documento, es una referencia de un documento
+        type: mongoose.SchemaTypes.ObjectId,
+        required: true,
+        trim: true,
+        // Nombre del modelo -> mongoose.model('koder', kodersSchema);
+        ref: 'koder',
+    },
+});
+
+// MODEL
+// Representa una colección en la db
+// Exports model to be use in useCases
+module.exports = mongoose.model('pratice', praticesSchema);

@@ -1,0 +1,40 @@
+// Import mongoose
+const mongoose = require('mongoose');
+
+const kodersSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true,
+        minLenght: 2,
+        maxLenght: 50,
+        trim: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+        minLenght: 2,
+        maxLenght: 50,
+        trim: true,
+    },
+    email: {
+        type: String,
+        require: true,
+        trim: true,
+        match: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, // Regex: Formato específico - Patron que seguir -> iHateRegex. Regex -> permiten trabajar con patrones de búsqueda sobre texto
+    },
+    password: {
+        type: String,
+        require: true,
+        trim: true,
+    },
+    program: {
+        type: String,
+        enum: ['javascript', 'python', 'ios'], // Únicos valores válidos para este campo
+        require: true,
+        trim: true,
+    },
+});
+
+// MODEL
+// Representa una colección en la db
+module.exports = mongoose.model('koder', kodersSchema);
