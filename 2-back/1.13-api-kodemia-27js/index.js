@@ -11,19 +11,19 @@ dotenv.config();
 // Destructuring process.env object
 const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST } = process.env;
 
-//
+// mongodb+srv -> protocol
 const URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
 
 // Conectar con la db
 mongoose
     .connect(URL)
     .then(() => {
-        console.log('DB connected');
+        console.log('DB connected 🟢');
         // Server listening...
         app.listen(port, () => {
-            console.log(`Server listening on port ${port}`);
+            console.log(`Server listening on port ${port} 🔊`);
         });
     })
     .catch((err) => {
-        console.log('Oooops, smth went wrong :(', err);
+        console.log('Oooops, smth went wrong 🔴', err);
     });
