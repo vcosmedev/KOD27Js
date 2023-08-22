@@ -23,4 +23,9 @@ function getById(id) {
     // return koderFound;
 }
 
-module.exports = { getAll, create, getById };
+// DELETE /koders/:id
+function removeById(koderId) {
+    return Koder.findByIdAndDelete(koderId);
+}
+
+module.exports = { getAll, create, getById, removeById };

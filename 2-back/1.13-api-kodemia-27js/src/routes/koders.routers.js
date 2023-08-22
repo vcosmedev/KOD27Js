@@ -29,4 +29,14 @@ router.get('/:id', async (req, res) => {
     res.json({ message: 'GET Koder by id from KodersDB', koder: getKoderById });
 });
 
+// Remove Koder -> DELTE /koders/:id
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+    const deleteKoderById = await koders.removeById(id);
+    res.json({
+        message: 'DELETE Koder by id from KodersDB',
+        koder: deleteKoderById,
+    });
+});
+
 module.exports = router;
