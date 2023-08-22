@@ -8,17 +8,19 @@ async function getAll() {
 // const allKoders = await Koder.find();
 // return allKoders;
 
-// POST /Koders
+// POST /koders
 async function create(koderData) {
-    const newKoder = await Koder.create(koderData); // Regresa promesa
-    return newKoder;
+    return await Koder.create(koderData); // Regresa promesa
+    // const newKoder = await Koder.create(koderData);
+    // return newKoder;
 }
 
 // GET /koders/:id
 function getById(id) {
     // const koderFound = Koder.find({ _id: id });
-    const koderFound = Koder.findById(id);
-    return koderFound;
+    return Koder.findById(id);
+    // const koderFound = Koder.findById(id);
+    // return koderFound;
 }
 
 module.exports = { getAll, create, getById };
