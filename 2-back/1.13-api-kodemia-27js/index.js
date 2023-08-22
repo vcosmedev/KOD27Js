@@ -1,12 +1,10 @@
+// Importar e invocar dotenv -> Buena práctica, incluir en la primera línea del doc
+require('dotenv').config(); // -> .config() se puede añadir configuración extra
 // Importar mongoose para utilizarlo para conectarnos a la db
 const mongoose = require('mongoose');
 // Importar server
 const app = require('./src/server');
 const port = 8080;
-// Importar dotenv
-const dotenv = require('dotenv');
-// Importar dotenv
-dotenv.config();
 
 // Destructuring process.env object
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
