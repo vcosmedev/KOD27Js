@@ -3,10 +3,10 @@ const Koder = require('../models/koder.model');
 
 // GET /koders
 async function getAll() {
-    const allKoders = await Koder.find();
-    return allKoders;
-    // return await Koder.find();
+    return await Koder.find();
 }
+// const allKoders = await Koder.find();
+// return allKoders;
 
 // POST /Koders
 async function create(koderData) {
