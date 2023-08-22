@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Destructuring process.env object
-const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
 // mongodb+srv -> protocol
 const URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
