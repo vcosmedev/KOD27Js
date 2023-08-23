@@ -2,6 +2,7 @@
 const express = require('express');
 // Import routers
 const kodersRouter = require('./routes/koders.router');
+const practicesRouter = require('./routes/practices.router');
 
 // Invocar función express
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // 'Montar' Routers
 app.use('/koders', kodersRouter);
+app.use('/practices', practicesRouter);
 
 // Crear endpoint
 app.get('/', (req, res) => {

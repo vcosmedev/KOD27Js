@@ -6,7 +6,7 @@ const koders = require('../useCases/koder.useCase');
 // Invoque 'Router' function
 const router = express.Router();
 
-// List Koders -> GET /koders -> Router route
+// List Koders -> GET /koders -> <Router route>
 router.get('/', async (req, res) => {
     const allKoders = await koders.getAll();
     res.json({
@@ -20,14 +20,14 @@ router.post('/', async (req, res) => {
     try {
         const { firstName, lastName, email, password, program } = req.body;
         await koders.create({ firstName, lastName, email, password, program });
-        res.status(201);
+        res.status(201); // Created
         res.json({
             message: 'Koder added to KodersDB',
             data: null,
-            // Puede regresar null, el koder creado, lista de todos los koders
+            // Puede regresar null, el koder creado, lista de todos los koders (ejemplos)
         });
     } catch (error) {
-        res.status(500);
+        res.status(500); // Server error
         res.json({
             message: 'Smth went wrong 😿',
             error: error,
@@ -46,7 +46,7 @@ router.get('/:id', async (req, res) => {
     });
 });
 
-// Remove Koder -> DELTE /koders/:id
+// Remove Koder -> DELETE /koders/:id
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;
     const deleteKoderById = await koders.removeById(id);
