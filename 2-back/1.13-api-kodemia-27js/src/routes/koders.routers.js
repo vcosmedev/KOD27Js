@@ -17,14 +17,22 @@ router.get('/', async (req, res) => {
 
 // Create Koder -> POST /koders
 router.post('/', async (req, res) => {
-    const { firstName, lastName, email, password, program } = req.body;
-    await koders.create({ firstName, lastName, email, password, program });
-    res.status(201);
-    res.json({
-        message: 'Koder added to KodersDB',
-        data: null,
-        // Puede regresar null, el koder creado, lista de todos los koders
-    });
+    try {
+        const { firstName, lastName, email, password, program } = req.body;
+        await koders.create({ firstName, lastName, email, password, program });
+        res.status(201);
+        res.json({
+            message: 'Koder added to KodersDB',
+            data: null,
+            // Puede regresar null, el koder creado, lista de todos los koders
+        });
+    } catch (error) {
+        res.status(500);
+        res.json({
+            message: 'Smth went wrong 😿',
+            error: error,
+        });
+    }
 });
 
 // List Koder by id -> GET /koders/:id
@@ -32,7 +40,8 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
     const getKoderById = await koders.getById(id);
     res.json({
-        message: 'GET Koder by id from KodersDB',
+        message: `GET Koder ${getKoderById.firstName} from KodersDB`,
+        // message: `GET Koder ${id} from KodersDB`,
         data: { koder: getKoderById },
     });
 });
