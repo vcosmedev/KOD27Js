@@ -7,6 +7,7 @@ const kodersRouter = require('./routes/koders.routers');
 const app = express();
 
 // Middleware json -> Recibe peticiones json y que pueda ser utilizado -> Leer json desde req.body
+// Esta función siempre irá antes de montar routers
 app.use(express.json());
 
 // 'Montar' Routers
