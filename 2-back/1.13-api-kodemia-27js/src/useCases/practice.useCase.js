@@ -24,12 +24,35 @@ async function getById(id) {
     }
     return practice;
 }
-// GET /practices/:koderId
+
+// GET /practices/:id?koderId=64e6d5fa8cea4cc56bb7e901
 function getByKoderId() {}
 
-// DELETE practices/:id
-function removeById(practiceId) {
-    return Practice.findByIdAndDelete(practiceId);
+// PATCH /practices/:id
+async function updateById(id, dataToUpdate) {
+    // Validation
+    if (!mongoose.isValidObjectId(id)) {
+        throw new createError(400, 'Invalid id');
+    }
+    const practiceUpdated = await Practice.findByIdAndUpdate(id, dataToUpdate, {
+        new: true,
+    });
+    if (!practiceUpdated) {
+        throw new createError(404, 'Practice not found, patch');
+    }
+    return practiceUpdated;
 }
 
-module.exports = { getAll, create, getById, removeById };
+// DELETE practices/:id
+async function removeById(practiceId) {
+    if (!mongoose.isValidObjectId(id)) {
+        throw new createError(400, 'Invalid id');
+    }
+    const practiceDeleted = await Practice.findByIdAndDelete(practiceId);
+    if (!practiceDeleted) {
+        throw new createError(404, 'Practice not found');
+    }
+    return practiceDeleted;
+}
+
+module.exports = { getAll, create, getById, updateById, removeById };

@@ -19,11 +19,15 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const { title, repository, koder } = req.body;
-        await practices.create({ title, repository, koder });
+        const practiceCreated = await practices.create({
+            title,
+            repository,
+            koder,
+        });
         res.status(201); // Created
         res.json({
             message: 'Practice added to KodersDB',
-            data: null,
+            data: { practice: practiceCreated },
         });
     } catch (error) {
         res.status(500); // Server error
@@ -52,16 +56,45 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// List Practice by Koder id -> GET
+// List Practices by Koder id -> GET /practices/:id?koderId=64e6d5fa8cea4cc56bb7e901
+
+// Update Practice -> PATCH /practices/:id
+router.patch('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const data = req.body;
+        const practiceUpdated = await practices.updateById(id, data);
+        res.json({
+            message: 'Practice updated',
+            data: {
+                practice: practiceUpdated,
+            },
+        });
+    } catch (error) {
+        res.status(error.status || 500);
+        res.json({
+            message: 'Smth went wrong',
+            error: error.message,
+        });
+    }
+});
 
 // Remove Practice -> DELETE /practices/:id
 router.delete('/:id', async (req, res) => {
-    const { id } = req.params;
-    const deletePracticeById = await practices.removeById(id);
-    res.json({
-        message: `DELETE ${deletePracticeById.title} from KodersDB`,
-        data: { practice: deletePracticeById },
-    });
+    try {
+        const { id } = req.params;
+        const deletePracticeById = await practices.removeById(id);
+        res.json({
+            message: `DELETE ${deletePracticeById.title} from KodersDB`,
+            data: { practice: deletePracticeById },
+        });
+    } catch (error) {
+        res.status(error.status || 500);
+        res.json({
+            message: 'Smth went wrong 😔',
+            error: error.message,
+        });
+    }
 });
 
 module.exports = router;
