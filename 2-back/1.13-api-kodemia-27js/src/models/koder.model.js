@@ -18,19 +18,19 @@ const kodersSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         trim: true,
         match: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, // Regex: Formato específico - Patron que seguir -> iHateRegex. Regex -> permiten trabajar con patrones de búsqueda sobre texto
     },
     password: {
         type: String,
-        require: true,
+        required: true,
         trim: true,
     },
     program: {
         type: String,
         enum: ['javascript', 'python', 'ios'], // Únicos valores válidos para este campo
-        require: true,
+        required: true,
         trim: true,
     },
 });
