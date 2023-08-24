@@ -27,11 +27,17 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const { firstName, lastName, email, password, program } = req.body;
-        await koders.create({ firstName, lastName, email, password, program });
+        const koderCreated = await koders.create({
+            firstName,
+            lastName,
+            email,
+            password,
+            program,
+        });
         res.status(201); // Created
         res.json({
-            message: 'Koder added to KodersDB',
-            data: null,
+            message: `Koder ${koderCreated.firstName} added to KodersDB`,
+            data: { koder: koderCreated },
             // Puede regresar null, el koder creado, lista de todos los koders (ejemplos)
         });
     } catch (error) {
@@ -73,7 +79,7 @@ router.patch('/:id', async (req, res) => {
         const data = req.body;
         const koderUpdated = await koders.updateById(id, data);
         res.json({
-            message: 'Koder updated',
+            message: `Koder ${koderUpdated.firstName} updated`,
             data: {
                 koder: koderUpdated,
             },
@@ -93,7 +99,7 @@ router.delete('/:id', async (req, res) => {
         const { id } = req.params;
         const deleteKoderById = await koders.removeById(id);
         res.json({
-            message: 'DELETE Koder by id from KodersDB',
+            message: `DELETE Koder ${deleteKoderById.firstName} from KodersDB`,
             data: { koder: deleteKoderById },
         });
     } catch (error) {
