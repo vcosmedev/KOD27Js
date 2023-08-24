@@ -36,12 +36,20 @@ router.post('/', async (req, res) => {
 
 // List Practice by id -> GET /practices/:id
 router.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    const getPracticeById = await practices.getById(id);
-    res.json({
-        message: `GET ${getPracticeById.title} from KodersDB`,
-        data: { practice: getPracticeById },
-    });
+    try {
+        const { id } = req.params;
+        const getPracticeById = await practices.getById(id);
+        res.json({
+            message: `GET ${getPracticeById.title} from KodersDB`,
+            data: { practice: getPracticeById },
+        });
+    } catch (error) {
+        res.status(error.status || 500);
+        res.json({
+            message: 'Smth went wrong 😢',
+            error: error.message,
+        });
+    }
 });
 
 // List Practice by Koder id -> GET

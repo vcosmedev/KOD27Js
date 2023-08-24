@@ -1,5 +1,5 @@
-// Únicos que importan los modelos
 const mongoose = require('mongoose');
+// Use Case: único recurso que importan 'modelos'
 const Koder = require('../models/koder.model');
 const createError = require('http-errors');
 
@@ -33,7 +33,7 @@ async function getById(id) {
     }
 
     const koder = await Koder.findById(id);
-
+    // Cuando sea un ID que no existe en db
     if (!koder) {
         throw new createError(404, 'Koder not found 🚫');
     }
