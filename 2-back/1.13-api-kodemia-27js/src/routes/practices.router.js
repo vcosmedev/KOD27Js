@@ -30,7 +30,8 @@ router.post('/', async (req, res) => {
             data: { practice: practiceCreated },
         });
     } catch (error) {
-        res.status(500); // Server error
+        const status = error.name === 'ValidationError' ? 400 : 500;
+        res.status(error.status || status); // Server error
         res.json({
             message: 'Smth went wrong 😿',
             error: error,

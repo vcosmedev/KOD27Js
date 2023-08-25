@@ -49,6 +49,8 @@ async function updateById(id, dataToUpdate) {
         new: true,
         // Objecto de opciones (documentation: 'options')
         // if true, return the modified document rather than the original
+        runValidators: true,
+        // Correr validaciones al momento de actualizar un valor
     });
     if (!koderUpdated) {
         throw new createError(404, 'Koder not found, patch');

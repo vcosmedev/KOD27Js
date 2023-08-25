@@ -33,6 +33,11 @@ const kodersSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
+    created: {
+        type: Date,
+        required: true,
+        default: new Date(), // Ejecuta esta función cuando se crea un nuevo archivo
+    },
 });
 
 // MODEL

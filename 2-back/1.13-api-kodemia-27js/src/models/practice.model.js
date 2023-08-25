@@ -23,6 +23,17 @@ const praticesSchema = new mongoose.Schema({
         // Nombre del modelo -> mongoose.model('koder', kodersSchema);
         ref: 'koder',
     },
+    created: {
+        type: Date,
+        required: true,
+        default: new Date(), // Ejecuta esta función cuando se crea un nuevo archivo
+    },
+    // Implementar lógica cada vez que se actualice
+    modified: {
+        type: Date,
+        required: true,
+        default: new Date(),
+    },
 });
 
 // MODEL

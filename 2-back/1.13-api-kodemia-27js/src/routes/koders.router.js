@@ -85,7 +85,8 @@ router.patch('/:id', async (req, res) => {
             },
         });
     } catch (error) {
-        res.status(error.status || 500);
+        const status = error.name === 'ValidationError' ? 400 : 500;
+        res.status(error.status || status);
         res.json({
             message: 'Smth went wrong',
             error: error.message,
