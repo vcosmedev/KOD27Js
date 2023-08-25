@@ -8,7 +8,8 @@ const router = express.Router();
 
 // List Practices -> GET /practices -> <Router route>
 router.get('/', async (req, res) => {
-    const allPractices = await practices.getAll();
+    const { titleFilter, koder } = req.query;
+    const allPractices = await practices.getAll(titleFilter, koder);
     res.json({
         message: 'GET all Practices from KodersDB',
         data: { practices: allPractices },
@@ -57,7 +58,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// List Practices by Koder id -> GET /practices/:id?koderId=64e6d5fa8cea4cc56bb7e901
+// List Practices by Koder id -> GET /practices?koderId=64e6d5fa8cea4cc56bb7e901 ó /practices?title=practice&koderId=64e6d5fa8cea4cc56bb7e901
 
 // Update Practice -> PATCH /practices/:id
 router.patch('/:id', async (req, res) => {

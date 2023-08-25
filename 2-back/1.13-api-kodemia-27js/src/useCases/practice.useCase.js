@@ -5,8 +5,16 @@ const Koder = require('../models/koder.model');
 const createError = require('http-errors');
 
 // GET /practices
-async function getAll() {
-    return await Practice.find().populate('koder');
+async function getAll(titleFilter, koder) {
+    // Agregar consultas que se quieren añadir a la db
+    const filters = {};
+    if (titleFilter) {
+        filters.title = new RegExp(titleFilter, 'i');
+    }
+    if (koder && mongoose.isValidObjectId(koder)) {
+        filters.koder = koder;
+    }
+    return await Practice.find(filters).populate('koder');
 }
 
 // POST /practices
