@@ -26,7 +26,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 // Create Koder -> POST /koders
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     try {
         const { firstName, lastName, email, password, program } = req.body;
         const koderCreated = await koders.create({
@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
 });
 
 // List Koder by id -> GET /koders/:id
-router.get('/:id', async (req, res) => {
+router.get('/:id', auth, async (req, res) => {
     try {
         const { id } = req.params;
         const getKoderById = await koders.getById(id);
@@ -97,7 +97,7 @@ router.patch('/:id', async (req, res) => {
 });
 
 // Remove Koder -> DELETE /koders/:id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
     try {
         const { id } = req.params;
         const deleteKoderById = await koders.removeById(id);
