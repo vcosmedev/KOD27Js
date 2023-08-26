@@ -2,12 +2,14 @@
 const express = require('express');
 // Import useCase 'Koders' (get functions from useCases)
 const koders = require('../useCases/koder.useCase');
+// Import middleware
+const auth = require('../middleware/auth.middleware'); // Poner auth middleware function antes del req, res
 
 // Invoque 'Router' function
 const router = express.Router();
 
 // List Koders -> GET /koders -> <Router route>
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
         const allKoders = await koders.getAll();
         res.json({

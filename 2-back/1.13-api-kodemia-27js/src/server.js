@@ -3,6 +3,7 @@ const express = require('express');
 // Import routers
 const kodersRouter = require('./routes/koders.router');
 const practicesRouter = require('./routes/practices.router');
+const authRouter = require('./routes/auth.router');
 
 // Invocar función express
 const app = express();
@@ -12,6 +13,7 @@ const app = express();
 app.use(express.json());
 
 // 'Montar' Routers
+app.use('/auth', authRouter);
 app.use('/koders', kodersRouter);
 app.use('/practices', practicesRouter);
 

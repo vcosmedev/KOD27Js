@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 // Use Case: único recurso que importan 'modelos'
 const Koder = require('../models/koder.model');
 const createError = require('http-errors');
+const bcrypt = require('../lib/bcyrpt');
 
 // GET /koders
 async function getAll() {
@@ -12,7 +13,27 @@ async function getAll() {
 
 // POST /koders
 async function create(koderData) {
-    return await Koder.create(koderData); // Regresa promesa
+    // Validación si el usuario existe antes de crear uno nuevo -> find() regresa un arreglo de resultados; findOne() regresa solamente el elemento, así evitamos ingresar en el arreglo
+    const existingKoder = await Koder.findOne({ email: koderData.email });
+    if (existingKoder) throw new createError(412, 'Koder already exists');
+    // 409 -> Conflict
+    // 412 -> Precondition Failed (las condiciones anteriores no se cumplieron)
+
+    // Password validation
+    const passwordRegExp = new RegExp(
+        '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$'
+    );
+    if (!passwordRegExp.test(koderData.password)) {
+        throw new createError(400, 'Weak password');
+    }
+
+    // Save encrypted password
+    // const passwordEncrypted = bcrypt.encrypt(koderData.password);
+    // koderData.password = passwordEncrypted;
+    koderData.password = bcrypt.encrypt(koderData.password);
+
+    const newKoder = await Koder.create(koderData); // Regresa promesa
+    return newKoder;
     // const newKoder = await Koder.create(koderData);
     // return newKoder;
 }
