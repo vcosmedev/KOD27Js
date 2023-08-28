@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
         });
     } catch (error) {
         res.status(500);
-        req.json({
+        res.json({
             message: 'Smth went wrong, auth router',
             error: error.message,
         });
