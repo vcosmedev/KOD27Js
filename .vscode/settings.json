@@ -1,6 +1,0 @@
-{
-    "eslint.codeActionsOnSave.rules": null,
-    "rules": {
-    "react/prop-types": "off"
-    }
-}
