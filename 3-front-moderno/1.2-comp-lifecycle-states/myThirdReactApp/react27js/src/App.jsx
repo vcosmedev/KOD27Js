@@ -4,58 +4,98 @@ import './App.css';
 import GreetingHeading from './components/GreetingHeading';
 
 function App() {
-    const [language, setLanguage] = useState('es');
+    const [capital, setCapital] = useState('es');
 
-    const handleChangeLanguage = (event) => {
-        setLanguage(event.target.value);
+    const handleCapital = (event) => {
+        setCapital(event.target.value);
     };
 
-    const greetingMap = {
-        es: 'Buenos días',
-        en: 'Good morning',
-        fr: 'Bonjour',
+    const capitalMap = {
+        es: 'Madrid',
+        uk: 'London',
+        fr: 'Paris',
+        jp: 'Tokio',
+        br: 'Brasilia',
+        ca: 'Ottawa',
     };
 
     return (
         <>
             <div>
-                <div>
+                <div className='d-flex justify-content-center'>
                     <input
                         type='radio'
                         id='es'
                         value='es'
-                        checked={language === 'es'}
-                        onChange={handleChangeLanguage}
+                        checked={capital === 'es'}
+                        onChange={handleCapital}
                     />
                     <label className='ms-3' htmlFor='es'>
                         ES 🇪🇸
                     </label>
                 </div>
-                <div>
+                <div className='d-flex justify-content-center'>
                     <input
                         type='radio'
-                        id='en'
-                        value='en'
-                        checked={language === 'en'}
-                        onChange={handleChangeLanguage}
+                        id='uk'
+                        value='uk'
+                        checked={capital === 'uk'}
+                        onChange={handleCapital}
                     />
-                    <label className='ms-3' htmlFor='en'>
-                        EN 🇬🇧
+                    <label className='ms-3' htmlFor='uk'>
+                        UK 🇬🇧
                     </label>
                 </div>
-                <div>
+                <div className='d-flex justify-content-center'>
                     <input
                         type='radio'
                         id='fr'
                         value='fr'
-                        checked={language === 'fr'}
-                        onChange={handleChangeLanguage}
+                        checked={capital === 'fr'}
+                        onChange={handleCapital}
                     />
                     <label className='ms-3' htmlFor='fr'>
                         FR 🇫🇷
                     </label>
                 </div>
-                <GreetingHeading text={greetingMap[language]} />
+                <div className='d-flex justify-content-center'>
+                    <input
+                        type='radio'
+                        id='jp'
+                        value='jp'
+                        checked={capital === 'jp'}
+                        onChange={handleCapital}
+                    />
+                    <label className='ms-3' htmlFor='jp'>
+                        JP 🇯🇵
+                    </label>
+                </div>
+                <div className='d-flex justify-content-center'>
+                    <input
+                        type='radio'
+                        id='br'
+                        value='br'
+                        checked={capital === 'br'}
+                        onChange={handleCapital}
+                    />
+                    <label className='ms-3' htmlFor='br'>
+                        BR 🇧🇷
+                    </label>
+                </div>
+                <div className='d-flex justify-content-center'>
+                    <input
+                        type='radio'
+                        id='ca'
+                        value='ca'
+                        checked={capital === 'ca'}
+                        onChange={handleCapital}
+                    />
+                    <label className='ms-3' htmlFor='ca'>
+                        CA 🇨🇦
+                    </label>
+                </div>
+                {/* <h1 className='mt-1'>{greetingMap[language]}</h1> */}
+                <h1 className='mt-1'>{capitalMap[capital]}</h1>
             </div>
         </>
     );
