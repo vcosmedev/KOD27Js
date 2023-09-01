@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import GreetingHeading from './components/GreetingHeading';
 
 function App() {
     const [language, setLanguage] = useState('es');
@@ -54,7 +55,7 @@ function App() {
                         FR 🇫🇷
                     </label>
                 </div>
-                <h1 className='mt-1'>{greetingMap[language]}</h1>
+                <GreetingHeading text={greetingMap[language]} />
             </div>
         </>
     );
