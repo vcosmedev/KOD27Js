@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.card-width {
+  width: 10rem;
+}
+.card-height {
+  height: 12rem!important;
+}
+
+.btn-styles {
+  width: 3.5rem;
+  height: 1.5rem;
+  font-size: 0.5rem!important;
+  font-weight: bolder;
+}

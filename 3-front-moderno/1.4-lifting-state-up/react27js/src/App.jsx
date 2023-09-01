@@ -37,34 +37,34 @@ function App() {
             {/* Input name and img */}
             <div className='container'>
                 <div className='row'>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-4 d-flex align-items-center'>
                         <form>
                             <div className='mb-3'>
                                 <label
-                                    htmlFor='exampleInputEmail1'
+                                    htmlFor='exampleInputText1'
                                     className='form-label'
                                 >
                                     Name
                                 </label>
                                 <input
-                                    type='email'
+                                    type='text'
                                     className='form-control'
-                                    id='exampleInputEmail1'
-                                    aria-describedby='emailHelp'
+                                    id='exampleInputText'
+                                    aria-describedby='text'
                                     onChange={nameHandler}
                                 />
                             </div>
                             <div className='mb-3'>
                                 <label
-                                    htmlFor='exampleInputURl'
+                                    htmlFor='exampleInputText'
                                     className='form-label'
                                 >
                                     Image
                                 </label>
                                 <input
-                                    type='url'
+                                    type='text'
                                     className='form-control'
-                                    id='exampleInputUrl'
+                                    id='exampleInputText'
                                     onChange={imageHandler}
                                 />
                             </div>
@@ -78,36 +78,114 @@ function App() {
                         </form>
                     </div>
                     {/* Cards */}
-                    <div className='row'>
-                        <div className='col-sm-6 mb-3 mb-sm-0'>
-                            <div className='card'>
-                                <div className='card-body'>
-                                    <h5 className='card-title'>
-                                        Special title treatment
-                                    </h5>
-                                    <p className='card-text'>
-                                        With supporting text below as a natural
-                                        lead-in to additional content.
-                                    </p>
-                                    <a href='#' className='btn btn-primary'>
-                                        Go somewhere
-                                    </a>
+                    <div className='col-12 col-md-6'>
+                        <div className='row'>
+                            <div className='col-sm-6 mb-3 mb-sm-0'>
+                                <div className='card card-width card-height'>
+                                    <div className='card-body'>
+                                        <img
+                                            src='https://randomuser.me/api/portraits/lego/6.jpg'
+                                            className='card-img-top mb-3'
+                                            alt='Profile Picture'
+                                        />
+                                        <h6 className='card-title'>Víctor</h6>
+                                        <a
+                                            href='#'
+                                            className='btn btn-primary btn-styles'
+                                        >
+                                            Add
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className='col-sm-6'>
-                            <div className='card'>
-                                <div className='card-body'>
-                                    <h5 className='card-title'>
-                                        Special title treatment
-                                    </h5>
-                                    <p className='card-text'>
-                                        With supporting text below as a natural
-                                        lead-in to additional content.
-                                    </p>
-                                    <a href='#' className='btn btn-primary'>
-                                        Go somewhere
-                                    </a>
+                            <div className='col-sm-6 mb-3 mb-sm-0'>
+                                <div className='card card-width card-height'>
+                                    <div className='card-body'>
+                                        <img
+                                            src='https://randomuser.me/api/portraits/lego/8.jpg'
+                                            className='card-img-top mb-3'
+                                            alt='Profile Picture'
+                                        />
+                                        <h6 className='card-title'>Ángel</h6>
+                                        <a
+                                            href='#'
+                                            className='btn btn-primary btn-styles'
+                                        >
+                                            Add
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
+                                <div className='card card-width card-height'>
+                                    <div className='card-body'>
+                                        <img
+                                            src='https://randomuser.me/api/portraits/lego/4.jpg'
+                                            className='card-img-top mb-3'
+                                            alt='Profile Picture'
+                                        />
+                                        <h6 className='card-title'>Nacho</h6>
+                                        <a
+                                            href='#'
+                                            className='btn btn-primary btn-styles'
+                                        >
+                                            Add
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
+                                <div className='card card-width card-height'>
+                                    <div className='card-body'>
+                                        <img
+                                            src='https://randomuser.me/api/portraits/lego/7.jpg'
+                                            className='card-img-top mb-3'
+                                            alt='Profile Picture'
+                                        />
+                                        <h6 className='card-title'>Rodri</h6>
+                                        <a
+                                            href='#'
+                                            className='btn btn-primary btn-styles'
+                                        >
+                                            Add
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
+                                <div className='card card-width card-height'>
+                                    <div className='card-body'>
+                                        <img
+                                            src='https://randomuser.me/api/portraits/lego/2.jpg'
+                                            className='card-img-top mb-3'
+                                            alt='Profile Picture'
+                                        />
+                                        <h6 className='card-title'>Eu</h6>
+                                        <a
+                                            href='#'
+                                            className='btn btn-primary btn-styles'
+                                        >
+                                            Add
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
+                                <div className='card card-width card-height'>
+                                    <div className='card-body'>
+                                        <img
+                                            src='https://randomuser.me/api/portraits/lego/5.jpg'
+                                            className='card-img-top mb-3'
+                                            alt='Profile Picture'
+                                        />
+                                        <h6 className='card-title'>Salva</h6>
+                                        <a
+                                            href='#'
+                                            className='btn btn-primary btn-styles'
+                                        >
+                                            Add
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
