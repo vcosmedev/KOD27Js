@@ -3,118 +3,58 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-    // const [title, setTitle] = useState('Hello Koders');
-    // // const [user, setUser] = useState({});
-    // const inputHandler = (event) => {
-    //     const text = event.target.value;
-    //     setTitle(text);
-    // };
-
-    // // const userInputHandler = (event) => {
-    // //     const property = event.target.value;
-    // //     const value = event.target.value;
-
-    // //     setUser({ ...user, [property]: value });
-    // // };
-    const [language, setLanguage] = useState('esp');
+    const [language, setLanguage] = useState('es');
 
     const handleChangeLanguage = (event) => {
         setLanguage(event.target.value);
     };
 
-    const getTranslatedText = () => {
-        switch (language) {
-            case 'eng':
-                return 'Good morning';
-            case 'fra':
-                return 'Bonjour';
-            default:
-                return 'Buenos días';
-        }
+    const greetingMap = {
+        es: 'Buenos días',
+        en: 'Good morning',
+        fr: 'Bonjour',
     };
 
     return (
         <>
-            {/* <input
-                type='text'
-                onChange={(event) => {
-                    inputHandler(event);
-                }}
-            />
-            <h1>{title}</h1>
-
-            <input
-                type='radio'
-                class='btn-check'
-                name='options-base'
-                id='option5'
-                autocomplete='off'
-                checked
-            />
-            <label class='btn' for='option5'>
-                Español
-            </label>
-
-            <input
-                type='radio'
-                class='btn-check'
-                name='options-base'
-                id='option6'
-                autocomplete='off'
-            />
-            <label class='btn' for='option6'>
-                Inglés
-            </label>
-
-            <input
-                type='radio'
-                class='btn-check'
-                name='options-base'
-                id='option8'
-                autocomplete='off'
-            />
-            <label class='btn' for='option8'>
-                Francés
-            </label> */}
             <div>
-                <h1>{getTranslatedText()}</h1>
-
                 <div>
                     <input
                         type='radio'
-                        id='esp'
-                        value='esp'
-                        checked={language === 'esp'}
+                        id='es'
+                        value='es'
+                        checked={language === 'es'}
                         onChange={handleChangeLanguage}
                     />
-                    <label className='ms-3' htmlFor='esp'>
+                    <label className='ms-3' htmlFor='es'>
                         ES 🇪🇸
                     </label>
                 </div>
                 <div>
                     <input
                         type='radio'
-                        id='eng'
-                        value='eng'
-                        checked={language === 'eng'}
+                        id='en'
+                        value='en'
+                        checked={language === 'en'}
                         onChange={handleChangeLanguage}
                     />
-                    <label className='ms-3' htmlFor='eng'>
+                    <label className='ms-3' htmlFor='en'>
                         EN 🇬🇧
                     </label>
                 </div>
                 <div>
                     <input
                         type='radio'
-                        id='fra'
-                        value='fra'
-                        checked={language === 'fra'}
+                        id='fr'
+                        value='fr'
+                        checked={language === 'fr'}
                         onChange={handleChangeLanguage}
                     />
-                    <label className='ms-3' htmlFor='fra'>
+                    <label className='ms-3' htmlFor='fr'>
                         FR 🇫🇷
                     </label>
                 </div>
+                <h1 className='mt-1'>{greetingMap[language]}</h1>
             </div>
         </>
     );
