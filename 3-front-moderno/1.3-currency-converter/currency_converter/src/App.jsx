@@ -44,7 +44,7 @@ function App() {
                     <div className='col-12 col-md-6'>
                         <hr />
                         <h3 className='mt-3'>
-                            Ingresa el monto en MXN a convertir:
+                            Ingresa el monto en MXN a convertir
                         </h3>
                         <form
                             action=''
@@ -64,7 +64,7 @@ function App() {
                     <div className='col-12 col-md-6'>
                         <hr />
                         <h5 className='mt-3'>
-                            Selecciona la divisa a la que quieres convertir:{' '}
+                            Selecciona la divisa a la que quieres convertir{' '}
                         </h5>
                         <div className='card mb-3'>
                             <div className='card-body'>
