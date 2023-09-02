@@ -6,6 +6,7 @@ import './App.css';
 function App() {
     const [amount, setAmount] = useState(null);
     const [currency, setCurrency] = useState('USD');
+    const [exchangeHistory, setExchangeHistory] = useState([]);
 
     const amountHandler = (event) => {
         const value = Number(event.target.value);
@@ -26,12 +27,25 @@ function App() {
     const calculateExchange = (amount, currency) =>
         amount / currencyMap[currency];
 
+    const saveExchange = () => {
+        // Item to be added
+        const item = `${amount} MXN -> ${calculateExchange(
+            amount,
+            currency
+        )} ${currency}`;
+        setExchangeHistory([...exchangeHistory, item]);
+        setAmount(0);
+    };
+
     return (
         <>
             <div className='container'>
                 <div className='row'>
                     <div className='col-12 col-md-6'>
-                        <h3>Ingresa el monto en MXN a convertir:</h3>
+                        <hr />
+                        <h3 className='mt-3'>
+                            Ingresa el monto en MXN a convertir:
+                        </h3>
                         <form
                             action=''
                             className='border rounded border-secondary shadow p-3'
@@ -42,15 +56,17 @@ function App() {
                                     className='form-control'
                                     onChange={amountHandler}
                                     // onChange={(event) => amountHandler(event)}
+                                    value={amount}
                                 />
                             </div>
                         </form>
                     </div>
                     <div className='col-12 col-md-6'>
-                        <h5>
+                        <hr />
+                        <h5 className='mt-3'>
                             Selecciona la divisa a la que quieres convertir:{' '}
                         </h5>
-                        <div className='card'>
+                        <div className='card mb-3'>
                             <div className='card-body'>
                                 <div className='form-check'>
                                     <input
@@ -106,12 +122,29 @@ function App() {
                             </div>
                         </div>
                     </div>
-                    <div className='col-12 col-md-6'>
+                    <hr />
+                    <div className='col-12 col-md-12 mb-3'>
                         <ExchangeResult
                             result={calculateExchange(amount, currency)}
                             currency={currency}
                         />
+                        <button
+                            className='btn btn-primary'
+                            onClick={saveExchange}
+                        >
+                            Guardar conversión
+                        </button>
+                        <hr />
+                        <h5>Historial de conversión</h5>
+                        <ul className='list-group'>
+                            {exchangeHistory.map((item) => {
+                                return (
+                                    <li className='list-group-item'>{item}</li>
+                                );
+                            })}
+                        </ul>
                     </div>
+                    <hr />
                 </div>
             </div>
         </>
