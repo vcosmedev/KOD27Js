@@ -20,7 +20,14 @@ function App() {
     // Add new task
     const addNewTaskHandler = () => {
         const newTask = [task];
+        // const newTask = {
+        //     id: taskList.length + 1,
+        //     priority: priority,
+        //     task: task,
+        //     done: false,
+        // };
         setTaskList([...taskList, newTask]);
+        setTask('');
     };
 
     return (
@@ -53,6 +60,8 @@ function App() {
                                 className='form-control'
                                 type='text'
                                 placeholder='New task input'
+                                // Set value to clear input field ⤵
+                                value={task}
                                 onChange={taskHandler}
                             />
                         </div>
