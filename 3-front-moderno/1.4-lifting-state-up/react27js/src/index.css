@@ -29,8 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url('./assets/leg0-gb.jpg');
-  background-size: cover;
+  background-color:#1a1a1a!important;
 }
 
 h1 {
