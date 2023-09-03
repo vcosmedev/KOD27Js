@@ -21,9 +21,9 @@ function App() {
     const addNewTaskHandler = () => {
         // const newTask = [task];
         const newTask = {
-            // id: taskList.length + 1,
+            id: taskList.length + 1,
             priority: priority,
-            task: task,
+            title: task,
             done: false,
         };
         setTaskList([...taskList, newTask]);
@@ -36,6 +36,22 @@ function App() {
         HIGH: 'text-danger',
     };
 
+    const isDoneHandler = (event, id) => {
+        const newTaskList = taskList.map((task) => {
+            if (task.id === id) {
+                return { ...task, done: event.target.checked };
+            } else {
+                return task;
+            }
+
+            // newTask.id === id
+            //     ? { ...newTask, done: event.target.checked }
+            //     : newTask;
+            // console.log('event', event.target.checked);
+        });
+        setTaskList(newTaskList);
+    };
+
     return (
         <>
             <div className='container'>
@@ -43,24 +59,31 @@ function App() {
                     <div className='col-12 col-md-6'>
                         <h1>ToDo List</h1>
                         <ul className='list-group'>
-                            {taskList.map((newTask) => {
+                            {taskList.map((task) => {
                                 return (
-                                    <li className='list-group-item d-flex justify-content-between'>
+                                    <li
+                                        key={task.id}
+                                        className='list-group-item d-flex justify-content-between'
+                                    >
                                         <p
                                             className={`${
-                                                priorityColorMap[
-                                                    newTask.priority
-                                                ]
+                                                priorityColorMap[task.priority]
                                             } fw-bold`}
+                                            style={{
+                                                textDecoration: task.done
+                                                    ? 'line-through'
+                                                    : 'none',
+                                            }}
                                         >
-                                            {[newTask.task]}
+                                            {task.title}
                                         </p>
                                         <input
                                             className='form-check-input ms-2'
                                             type='checkbox'
-                                            value=''
-                                            id='flexCheck'
-                                            // onChange
+                                            id=''
+                                            onChange={(event) =>
+                                                isDoneHandler(event, task.id)
+                                            }
                                         />
                                     </li>
                                 );
