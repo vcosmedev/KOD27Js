@@ -43,14 +43,13 @@ function App() {
                                 <label
                                     htmlFor='exampleInputText1'
                                     className='form-label'
-                                >
-                                    Name
-                                </label>
+                                ></label>
                                 <input
                                     type='text'
                                     className='form-control'
                                     id='exampleInputText'
                                     aria-describedby='text'
+                                    placeholder='Name'
                                     onChange={nameHandler}
                                 />
                             </div>
@@ -58,13 +57,12 @@ function App() {
                                 <label
                                     htmlFor='exampleInputText'
                                     className='form-label'
-                                >
-                                    Image
-                                </label>
+                                ></label>
                                 <input
                                     type='text'
                                     className='form-control'
                                     id='exampleInputText'
+                                    placeholder='Image URL'
                                     onChange={imageHandler}
                                 />
                             </div>
@@ -81,7 +79,7 @@ function App() {
                     <div className='col-12 col-md-6'>
                         <div className='row'>
                             <div className='col-sm-6 mb-3 mb-sm-0'>
-                                <div className='card card-width card-height'>
+                                <div className='card card-width card-height  card-bg'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/6.jpg'
@@ -99,7 +97,7 @@ function App() {
                                 </div>
                             </div>
                             <div className='col-sm-6 mb-3 mb-sm-0'>
-                                <div className='card card-width card-height'>
+                                <div className='card card-width card-height card-bg'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/8.jpg'
@@ -117,7 +115,7 @@ function App() {
                                 </div>
                             </div>
                             <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
-                                <div className='card card-width card-height'>
+                                <div className='card card-width card-height card-bg'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/4.jpg'
@@ -135,7 +133,7 @@ function App() {
                                 </div>
                             </div>
                             <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
-                                <div className='card card-width card-height'>
+                                <div className='card card-width card-height card-bg'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/7.jpg'
@@ -153,7 +151,7 @@ function App() {
                                 </div>
                             </div>
                             <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
-                                <div className='card card-width card-height'>
+                                <div className='card card-width card-height card-bg'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/2.jpg'
