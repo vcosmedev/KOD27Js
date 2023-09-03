@@ -19,15 +19,21 @@ function App() {
 
     // Add new task
     const addNewTaskHandler = () => {
-        const newTask = [task];
-        // const newTask = {
-        //     id: taskList.length + 1,
-        //     priority: priority,
-        //     task: task,
-        //     done: false,
-        // };
+        // const newTask = [task];
+        const newTask = {
+            // id: taskList.length + 1,
+            priority: priority,
+            task: task,
+            done: false,
+        };
         setTaskList([...taskList, newTask]);
         setTask('');
+    };
+
+    const priorityColorMap = {
+        LOW: 'text-info',
+        MEDIUM: 'text-warning',
+        HIGH: 'text-danger',
     };
 
     return (
@@ -39,8 +45,16 @@ function App() {
                         <ul className='list-group'>
                             {taskList.map((newTask) => {
                                 return (
-                                    <li className='list-group-item d-flex justify-content-center'>
-                                        {newTask}
+                                    <li className='list-group-item d-flex justify-content-between'>
+                                        <p
+                                            className={`${
+                                                priorityColorMap[
+                                                    newTask.priority
+                                                ]
+                                            } fw-bold`}
+                                        >
+                                            {[newTask.task]}
+                                        </p>
                                         <input
                                             className='form-check-input ms-2'
                                             type='checkbox'
