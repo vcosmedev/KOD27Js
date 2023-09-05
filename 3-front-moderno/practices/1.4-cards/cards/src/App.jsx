@@ -2,57 +2,66 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-    const [name, setName] = useState();
-    const [image, setImage] = useState();
-    const [data, setData] = useState([]);
+    // const [name, setName] = useState(null);
+    // const [image, setImage] = useState(null);
+    // const [data, setData] = useState([]);
+    const [card, setCard] = useState({
+        name: '',
+        image: '',
+    });
+    const [cardsList, setCardsList] = useState([]);
+    const [teamMembers, setTeamMembers] = useState([]);
 
-    const nameHandler = (event) => {
-        const value = event.target.value;
-        setName(value);
+    // const nameHandler = (event) => {
+    //     const value = event.target.value;
+    //     setName(value);
+    // };
+
+    const cardHandler = (event) => {
+        setCard({
+            ...card,
+            // id: cardList.length + 1,
+            [event.target.name]: event.target.value,
+        });
     };
 
-    const imageHandler = (event) => {
-        const value = event.target.value;
-        setImage(value);
-    };
+    // const imageHandler = (event) => {
+    //     const value = event.target.value;
+    //     setImage(value);
+    // };
 
-    const saveData = () => {
-        const newData = { name: name, image: image };
-        setData([...data, newData]);
-    };
-    console.log(data);
-
-    // function addNewTask(event) {
-    //     const newTask = {
-    //         id: 1,
-    //         description: text,
-    //         prioridad: radio,
-    //         completed: false,
-    //     };
-    //     setToDoList([...toDoList, newTask]);
-    // }
+    // const saveDataHandler = () => {
+    //     const newData = [data];
+    //     // const newData = {
+    //     //     id: data.length + 1,
+    //     //     name: name,
+    //     //     image: image,
+    //     // };
+    //     setData([...data, newData]);
+    //     setName('');
+    //     setImage('');
+    // };
 
     return (
         <>
             {/* Input name and img */}
             <div className='container'>
                 <div className='row'>
-                    <div className='col-12 col-md-4 d-flex align-items-center'>
+                    <div className='col-12 col-md-4 d-flex align-items-center justify-content-center'>
                         <form>
-                            <div className='mb-3'>
-                                <label
-                                    htmlFor='exampleInputText1'
-                                    className='form-label'
-                                ></label>
-                                <input
-                                    type='text'
-                                    className='form-control'
-                                    id='exampleInputText'
-                                    aria-describedby='text'
-                                    placeholder='Name'
-                                    onChange={nameHandler}
-                                />
-                            </div>
+                            <label
+                                htmlFor='name'
+                                className='form-label'
+                            ></label>
+                            <input
+                                type='text'
+                                className='form-control'
+                                name='name'
+                                id='name'
+                                aria-describedby='text'
+                                placeholder='Name'
+                                onChange={cardHandler}
+                            />
                             <div className='mb-3'>
                                 <label
                                     htmlFor='exampleInputText'
@@ -61,15 +70,16 @@ function App() {
                                 <input
                                     type='text'
                                     className='form-control'
-                                    id='exampleInputText'
+                                    name='image'
+                                    id='image'
                                     placeholder='Image URL'
-                                    onChange={imageHandler}
+                                    onChange={cardHandler}
                                 />
                             </div>
                             <button
                                 type='submit'
-                                className='btn btn-primary'
-                                onClick={saveData}
+                                className='btn btn-primary mb-3'
+                                // onClick={saveDataHandler}
                             >
                                 Save
                             </button>
@@ -79,7 +89,7 @@ function App() {
                     <div className='col-12 col-md-6'>
                         <div className='row'>
                             <div className='col-sm-6 mb-3 mb-sm-0'>
-                                <div className='card card-width card-height  card-bg'>
+                                <div className='card card-width card-height d-flex flex-column justify-content-center'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/6.jpg'
@@ -96,8 +106,8 @@ function App() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-sm-6 mb-3 mb-sm-0'>
-                                <div className='card card-width card-height card-bg'>
+                            {/* <div className='col-sm-6 mb-3 mb-sm-0'>
+                                <div className='card card-width card-height d-flex flex-column justify-content-center'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/8.jpg'
@@ -115,7 +125,7 @@ function App() {
                                 </div>
                             </div>
                             <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
-                                <div className='card card-width card-height card-bg'>
+                                <div className='card card-width card-height d-flex flex-column justify-content-center'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/4.jpg'
@@ -133,7 +143,7 @@ function App() {
                                 </div>
                             </div>
                             <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
-                                <div className='card card-width card-height card-bg'>
+                                <div className='card card-width card-height d-flex flex-column justify-content-center'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/7.jpg'
@@ -151,7 +161,7 @@ function App() {
                                 </div>
                             </div>
                             <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
-                                <div className='card card-width card-height card-bg'>
+                                <div className='card card-width card-height d-flex flex-column justify-content-center'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/2.jpg'
@@ -167,9 +177,9 @@ function App() {
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
-                                <div className='card card-width card-height'>
+                            </div> */}
+                            {/* <div className='col-sm-6 mb-3 mb-sm-0 mt-3'>
+                                <div className='card card-width card-height d-flex flex-column justify-content-center'>
                                     <div className='card-body'>
                                         <img
                                             src='https://randomuser.me/api/portraits/lego/5.jpg'
@@ -185,7 +195,7 @@ function App() {
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
