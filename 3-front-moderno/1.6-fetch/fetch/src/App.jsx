@@ -70,6 +70,13 @@ function App() {
                     <div className='col-12 col-md-6'>
                         <h3>Lista de canciones</h3>
                         <ul class='list-group'>
+                            {/* koders.map((koder) => {
+                            const {name, lastname, generation} = koder;
+                            return (
+                              <li className='list-group-item'>{`${name} ${lastname} ${generation}`}
+                              </li>
+                            )
+                           }) */}
                             <li class='list-group-item'>An item</li>
                             <li class='list-group-item'>A second item</li>
                             <li class='list-group-item'>A third item</li>
@@ -86,3 +93,14 @@ function App() {
 export default App;
 
 // https://console.firebase.google.com/u/0/project/javascript27g/database/javascript27g-default-rtdb/data/playlist
+
+/* 
+
+const [isLogged, setIsLogged] = useState(false);
+// Apply conditional rendering (truthy, falsy) into jsx code to show or hide
+
+
+
+
+
+*/
