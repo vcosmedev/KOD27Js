@@ -1,87 +1,107 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+// useEffect() es un hook que permite ejecutar un callback en la etapa de willmount del ciclo de vida del componente
+// (antes de que el componente se monte) y posteriormente permite ser ejecutado tantas veces como cambios
+// que se den en una dependencia
 
 function App() {
-    const [entry, setEntries] = useState({});
+    const [koders, setKoders] = useState({});
+    const [update, setUpdate] = useState(false);
+    const [koderData, setKoderData] = useState({});
 
-    const inputHandler = () => {
-        setEntries({ ...entry, [event.target.name]: event.target.value });
+    // useEffect((callback, dependenciesArray));
+    useEffect(() => {
+        // Definir función dentro del efecto
+        const getKoders = async () => {
+            const response = await fetch(
+                'https://javascript27kod-default-rtdb.firebaseio.com/koders.json'
+            );
+            const data = await response.json();
+            console.log(data);
+            setKoders(data);
+        };
+        getKoders();
+    }, [update]);
+    // }, [update, koders]);
+
+    const updateHandler = () => setUpdate(!update);
+
+    const inputHandler = (event) => {
+        setKoderData({
+            ...koderData,
+            [event.target.name]: event.target.value,
+        });
     };
 
-    // useEffect(() => {
-    //     const getEntries = () => {
-    //         const response = fetch(
-    //             'https://javascript27g-default-rtdb.firebaseio.com/playlist'
-    //         );
-    //         const data = response.json();
-    //         setEntries(data);
-    //     };
-    //     getEntries();
-    // }, []);
+    const saveKoder = async () => {
+        console.log(koderData);
+        const response = await fetch(
+            'https://javascript27kod-default-rtdb.firebaseio.com/koders.json',
+            {
+                method: 'POST',
+                body: JSON.stringify(koderData),
+            }
+        );
+        const data = await response.json();
+        setUpdate(!update);
+        console.log(data);
+    };
+
     return (
         <>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-12 col-md-6'>
-                        <h3>Registra una canción</h3>
-                        <form>
-                            <div class='mb-3'>
-                                <label
-                                    for='exampleInputEmail1'
-                                    class='form-label'
-                                >
-                                    Song Title
-                                </label>
+                    <div className='col-12 col-6-md'>
+                        <h1>Koders list</h1>
+                        <button
+                            className='btn btn-primary mb-3'
+                            onClick={updateHandler}
+                        >
+                            Update List
+                        </button>
+                        <form action=''>
+                            <div className='form-group mb-1'>
                                 <input
                                     type='text'
-                                    class='form-control'
-                                    id='songName'
-                                    aria-describedby='songName'
+                                    className='form-control'
                                     name='name'
+                                    placeholder='name'
                                     onChange={inputHandler}
                                 />
                             </div>
-                            <div class='mb-3'>
-                                <label
-                                    for='exampleInputEmail1'
-                                    class='form-label'
-                                >
-                                    Artist
-                                </label>
+                            <div className='form-group'>
                                 <input
                                     type='text'
-                                    class='form-control'
-                                    id='songName'
-                                    aria-describedby='songName'
-                                    name='artist'
+                                    className='form-control'
+                                    name='surname'
+                                    placeholder='surname'
                                     onChange={inputHandler}
                                 />
                             </div>
-                            <button
-                                type='submit'
-                                class='btn btn-primary'
-                                // onClick={test}
-                            >
-                                Save
-                            </button>
                         </form>
                     </div>
-                    <div className='col-12 col-md-6'>
-                        <h3>Lista de canciones</h3>
-                        <ul class='list-group'>
-                            {/* koders.map((koder) => {
-                            const {name, lastname, generation} = koder;
+                    <div className='col-12 col-6-md'>
+                        <button
+                            type='button'
+                            className='btn btn-primary mt-3 mb-3'
+                            onClick={saveKoder}
+                        >
+                            Save
+                        </button>
+                        <ul className='list-group'>
+                            {/* {koders.map((koder) => {
+                            const { name, lastname, generation } = koder;
                             return (
-                              <li className='list-group-item'>{`${name} ${lastname} ${generation}`}
-                              </li>
-                            )
-                           }) */}
-                            <li class='list-group-item'>An item</li>
-                            <li class='list-group-item'>A second item</li>
-                            <li class='list-group-item'>A third item</li>
-                            <li class='list-group-item'>A fourth item</li>
-                            <li class='list-group-item'>And a fifth one</li>
+                                <li className='list-group-item'>{`${name} ${lastname} ${generation}`}</li>
+                            );
+                        })} */}
+                            {Object.keys(koders).map((key) => (
+                                <li key={key} className='list-group-item'>
+                                    {koders[key].name} {koders[key].surname}
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
