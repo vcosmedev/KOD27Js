@@ -91,17 +91,18 @@ function App() {
                             >
                                 Save
                             </button>
-
+                        </form>
+                    </div>
+                    <div className='col-12 col-md-6'>
+                        <h3>
+                            Songs List 🎵
                             <button
                                 className='btn btn-primary mt-3 ms-3 mb-3'
                                 onClick={updateHandler}
                             >
                                 Update List
                             </button>
-                        </form>
-                    </div>
-                    <div className='col-12 col-md-6'>
-                        <h3>Songs List 🎵</h3>
+                        </h3>
                         <ul className='list-group'>
                             {/* Conditional rendering 'entries && ...' */}
                             {entries &&
@@ -110,7 +111,7 @@ function App() {
                                         key={key}
                                         className='list-group-item d-flex justify-content-between'
                                     >
-                                        {entries[key].name}:
+                                        {entries[key].name},{' '}
                                         {entries[key].artist}
                                         <button
                                             className='btn btn-danger'
