@@ -3,7 +3,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 
 function App() {
-    const [entries, setEntries] = useState({});
+    const [entries, setEntries] = useState(null);
     const [update, setUpdate] = useState(false);
     const [entryData, setEntryData] = useState({});
 
@@ -21,7 +21,7 @@ function App() {
     // Update Handler
     const updateHandler = () => setUpdate(!update);
 
-    //Input Handler
+    // Input Handler
     const inputHandler = (event) => {
         setEntryData({ ...entryData, [event.target.name]: event.target.value });
     };
@@ -37,7 +37,18 @@ function App() {
         );
         const data = await response.json();
         setUpdate(!update);
-        console.log(data);
+    };
+
+    // Delete Handler
+    const deleteHandler = async (key) => {
+        const response = await fetch(
+            `https://javascript27kod-default-rtdb.firebaseio.com/playlist/${key}.json`,
+            {
+                method: 'DELETE',
+            }
+        );
+        const data = await response.json();
+        setUpdate(!update);
     };
 
     return (
@@ -46,13 +57,6 @@ function App() {
                 <div className='row'>
                     <div className='col-12 col-md-6'>
                         <h3>Song registration</h3>
-                        <button
-                            type='submit'
-                            className='btn btn-primary'
-                            onClick={saveEntry}
-                        >
-                            Save
-                        </button>
                         <form>
                             <label
                                 htmlFor='exampleInputEmail1'
@@ -80,23 +84,42 @@ function App() {
                                 name='artist'
                                 onChange={inputHandler}
                             />
+                            <button
+                                type='submit'
+                                className='btn btn-primary mt-3 mb-3'
+                                onClick={saveEntry}
+                            >
+                                Save
+                            </button>
 
                             <button
-                                className='btn btn-primary mt-3'
+                                className='btn btn-primary mt-3 ms-3 mb-3'
                                 onClick={updateHandler}
                             >
                                 Update List
                             </button>
                         </form>
                     </div>
-                    <div className='col-12 col-md-6 mt-3'>
+                    <div className='col-12 col-md-6'>
                         <h3>Songs List 🎵</h3>
                         <ul className='list-group'>
-                            {Object.keys(entries).map((key) => (
-                                <li key={key} className='list-group-item'>
-                                    {entries[key].name} - {entries[key].artist}
-                                </li>
-                            ))}
+                            {/* Conditional rendering 'entries && ...' */}
+                            {entries &&
+                                Object.keys(entries).map((key) => (
+                                    <li
+                                        key={key}
+                                        className='list-group-item d-flex justify-content-between'
+                                    >
+                                        {entries[key].name}:
+                                        {entries[key].artist}
+                                        <button
+                                            className='btn btn-danger'
+                                            onClick={() => deleteHandler(key)}
+                                        >
+                                            Delete
+                                        </button>
+                                    </li>
+                                ))}
                         </ul>
                     </div>
                 </div>
@@ -110,12 +133,6 @@ export default App;
 // https://console.firebase.google.com/u/0/project/javascript27g/database/javascript27g-default-rtdb/data/playlist
 
 /* 
-
 const [isLogged, setIsLogged] = useState(false);
 // Apply conditional rendering (truthy, falsy) into jsx code to show or hide
-
-
-
-
-
 */
