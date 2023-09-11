@@ -6,7 +6,7 @@ function App() {
     const [entries, setEntries] = useState(null);
     const [update, setUpdate] = useState(false);
     const [entryData, setEntryData] = useState({});
-    const [isLogged, setIsLogged] = useState(true);
+    const [isLogged, setIsLogged] = useState(false);
 
     useEffect(() => {
         const getEntries = async () => {
@@ -52,9 +52,23 @@ function App() {
         setUpdate(!update);
     };
 
+    const loginHandler = () => setIsLogged(!isLogged);
+
     return (
         <>
             <div className='container'>
+                <div className='row'>
+                    <div className='col-12'>
+                        <div className='d-flex justify-content-end'>
+                            <button
+                                className='btn btn-success'
+                                onClick={loginHandler}
+                            >
+                                {isLogged ? 'Logout' : 'Log in'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div className='row'>
                     {isLogged && (
                         <div className='col-12 col-md-6 col-lg-12'>
