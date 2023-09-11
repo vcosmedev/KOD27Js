@@ -8,6 +8,7 @@ function App() {
     const [entryData, setEntryData] = useState({});
     const [isLogged, setIsLogged] = useState(false);
 
+    // useEffect getEntries
     useEffect(() => {
         const getEntries = async () => {
             const response = await fetch(
@@ -52,7 +53,23 @@ function App() {
         setUpdate(!update);
     };
 
-    const loginHandler = () => setIsLogged(!isLogged);
+    // Login Hanlder
+    const loginHandler = () => {
+        if (!isLogged) {
+            const token = '123456abcDEF';
+            localStorage.setItem('token', token);
+            setIsLogged(!isLogged);
+        } else if (isLogged) {
+            localStorage.removeItem('token');
+            setIsLogged(!isLogged);
+        }
+    };
+
+    // useEffect tokenExists
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        token ? setIsLogged(true) : setIsLogged(false);
+    }, []);
 
     return (
         <>
