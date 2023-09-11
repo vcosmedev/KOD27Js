@@ -6,6 +6,7 @@ function App() {
     const [entries, setEntries] = useState(null);
     const [update, setUpdate] = useState(false);
     const [entryData, setEntryData] = useState({});
+    const [isLogged, setIsLogged] = useState(true);
 
     useEffect(() => {
         const getEntries = async () => {
@@ -55,45 +56,49 @@ function App() {
         <>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-12 col-md-6'>
-                        <h3>Song registration</h3>
-                        <form>
-                            <label
-                                htmlFor='exampleInputEmail1'
-                                className='form-label'
-                            ></label>
-                            <input
-                                type='text'
-                                className='form-control'
-                                id='songName'
-                                aria-describedby='songName'
-                                placeholder='Song Title'
-                                name='name'
-                                onChange={inputHandler}
-                            />
-                            <label
-                                htmlFor='exampleInputEmail1'
-                                className='form-label'
-                            ></label>
-                            <input
-                                type='text'
-                                className='form-control'
-                                id='songName'
-                                aria-describedby='songName'
-                                placeholder='Artist'
-                                name='artist'
-                                onChange={inputHandler}
-                            />
-                            <button
-                                type='submit'
-                                className='btn btn-primary mt-3 mb-3'
-                                onClick={saveEntry}
-                            >
-                                Save
-                            </button>
-                        </form>
-                    </div>
-                    <div className='col-12 col-md-6'>
+                    {isLogged && (
+                        <div className='col-12 col-md-6 col-lg-12'>
+                            <h3>
+                                Song registration
+                                <button
+                                    type='submit'
+                                    className='btn btn-primary ms-3 mt-3 mb-3'
+                                    onClick={saveEntry}
+                                >
+                                    Save
+                                </button>
+                            </h3>
+                            <form>
+                                <label
+                                    htmlFor='exampleInputEmail1'
+                                    className='form-label'
+                                ></label>
+                                <input
+                                    type='text'
+                                    className='form-control'
+                                    id='songName'
+                                    aria-describedby='songName'
+                                    placeholder='Song Title'
+                                    name='name'
+                                    onChange={inputHandler}
+                                />
+                                <label
+                                    htmlFor='exampleInputEmail1'
+                                    className='form-label'
+                                ></label>
+                                <input
+                                    type='text'
+                                    className='form-control'
+                                    id='songName'
+                                    aria-describedby='songName'
+                                    placeholder='Artist'
+                                    name='artist'
+                                    onChange={inputHandler}
+                                />
+                            </form>
+                        </div>
+                    )}
+                    <div className='col-12 col-md-6 col-lg-12'>
                         <h3>
                             Songs List 🎵
                             <button
