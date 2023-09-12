@@ -71,6 +71,8 @@ function App() {
         token ? setIsLogged(true) : setIsLogged(false);
     }, []);
 
+    // Edit Handler
+
     return (
         <>
             <div className='container mt-3 mb-5'>
@@ -89,7 +91,7 @@ function App() {
                 <div className='row'>
                     {isLogged && (
                         <div className='col-12 col-md-6 col-lg-12'>
-                            <h3>
+                            <h3 className='mb-0'>
                                 Song registration
                                 <button
                                     type='submit'
@@ -130,7 +132,7 @@ function App() {
                         </div>
                     )}
                     <div className='col-12 col-md-6 col-lg-12'>
-                        <h3>
+                        <h3 className='mt-3'>
                             Songs List 🎵
                             <button
                                 className='btn btn-primary mt-3 ms-3 mb-3'
@@ -149,12 +151,24 @@ function App() {
                                     >
                                         {entries[key].name},{' '}
                                         {entries[key].artist}
-                                        <button
-                                            className='btn btn-danger'
-                                            onClick={() => deleteHandler(key)}
-                                        >
-                                            Delete
-                                        </button>
+                                        <div className='buttons-wrapper'>
+                                            <button
+                                                className='btn btn-danger me-3'
+                                                onClick={() =>
+                                                    deleteHandler(key)
+                                                }
+                                            >
+                                                Edit
+                                            </button>
+                                            <button
+                                                className='btn btn-danger'
+                                                onClick={() =>
+                                                    deleteHandler(key)
+                                                }
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
                                     </li>
                                 ))}
                         </ul>
