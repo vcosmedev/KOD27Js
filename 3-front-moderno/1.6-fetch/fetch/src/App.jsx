@@ -73,7 +73,7 @@ function App() {
 
     return (
         <>
-            <div className='container'>
+            <div className='container mt-3 mb-5'>
                 <div className='row'>
                     <div className='col-12'>
                         <div className='d-flex justify-content-end'>
