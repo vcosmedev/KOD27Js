@@ -5,6 +5,7 @@ function App() {
     const [user, setUser] = useState({});
     const [update, setUpdate] = useState(false);
     const [userData, setUserData] = useState({});
+    const [isLogged, setIsLogged] = useState(false);
 
     // useEffect() getUsers
     useEffect(() => {
@@ -40,12 +41,44 @@ function App() {
         setUpdate(!update);
     };
 
+    // Login Hanlder
+    const loginHandler = () => {
+        if (!isLogged) {
+            // const { id } = userData;
+            // const token = id;
+            const token = 'ID123098!$veintitres';
+            localStorage.setItem('token', token);
+            setIsLogged(!isLogged);
+        } else if (isLogged) {
+            localStorage.removeItem('token');
+            setIsLogged(!isLogged);
+        }
+    };
+
+    // useEffect() tokenExists
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        token ? setIsLogged(true) : setIsLogged(false);
+    }, []);
+
     return (
         <>
             <div className='container'>
                 <div className='row'>
+                    <div className='col-12'>
+                        <div className='d-flex justify-content-end mt-3'>
+                            <button
+                                className='btn btn-success'
+                                onClick={loginHandler}
+                            >
+                                {isLogged ? 'Logout' : 'Log in'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div className='row'>
                     <div className='col-12 col-md-4 pb-3 mt-3'>
-                        <h3 className='m-0'>Login form</h3>
+                        <h3 className='m-0'>Register form</h3>
                         <form>
                             <div className=''>
                                 <label
@@ -103,7 +136,7 @@ function App() {
                     <div className='col-12 col-md-4 pb-3 mt-3'>
                         <h3>Friends</h3>
                         <ul className='list-group'>
-                            {user &&
+                            {/* {user &&
                                 Object.keys(user).map((key) => (
                                     <li
                                         key={key}
@@ -111,7 +144,7 @@ function App() {
                                     >
                                         {user[key].name}, {user[key].email}
                                     </li>
-                                ))}
+                                ))} */}
                         </ul>
                     </div>
                 </div>
