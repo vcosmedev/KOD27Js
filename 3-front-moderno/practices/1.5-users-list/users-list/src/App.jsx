@@ -1,13 +1,43 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({});
+    const [update, setUpdate] = useState(false);
     const [userData, setUserData] = useState({});
+
+    // useEffect() getUsers
+    useEffect(() => {
+        const getUsers = async () => {
+            const response = await fetch(
+                'https://javascript27kod-default-rtdb.firebaseio.com/users.json'
+            );
+            const data = await response.json();
+            setUser(data);
+        };
+        getUsers();
+    }, [update]);
+
+    // pdate Handler
+    const updateHandler = () => setUpdate(!update);
 
     // userData Handler
     const inputHanlder = (event) => {
-        setUserData({ ...user, [event.target.name]: event.target.value });
+        setUserData({ ...userData, [event.target.name]: event.target.value });
+    };
+
+    // Save user
+    const saveUser = async () => {
+        const response = await fetch(
+            'https://javascript27kod-default-rtdb.firebaseio.com/users.json',
+            {
+                method: 'POST',
+                body: JSON.stringify(userData),
+            }
+        );
+        const data = await response.json();
+        console.log(data);
+        setUpdate(!update);
     };
 
     return (
@@ -24,9 +54,9 @@ function App() {
                                 ></label>
                                 <input
                                     type='text'
-                                    className='form-control'
-                                    id='name'
-                                    aria-describedby='emailHelp'
+                                    className='form-control mt-1'
+                                    id='userName'
+                                    aria-describedby='userName'
                                     placeholder='Name'
                                     name='name'
                                     onChange={inputHanlder}
@@ -40,7 +70,7 @@ function App() {
                                 <input
                                     type='email'
                                     className='form-control'
-                                    id='exampleInputPassword1'
+                                    id='userEmail'
                                     placeholder='Email'
                                     name='email'
                                     onChange={inputHanlder}
@@ -49,7 +79,8 @@ function App() {
 
                             <button
                                 type='submit'
-                                className='btn btn-primary mb-3 '
+                                className='btn btn-primary mb-3'
+                                onClick={saveUser}
                             >
                                 Save
                             </button>
@@ -57,6 +88,31 @@ function App() {
                     </div>
                     <div className='col-12 col-md-4 pb-3 mt-3'>
                         <h3>Users list</h3>
+                        <ul className='list-group'>
+                            {user &&
+                                Object.keys(user).map((key) => (
+                                    <li
+                                        key={key}
+                                        className='list-group-item mt-3'
+                                    >
+                                        {user[key].name}, {user[key].email}
+                                    </li>
+                                ))}
+                        </ul>
+                    </div>
+                    <div className='col-12 col-md-4 pb-3 mt-3'>
+                        <h3>Friends</h3>
+                        <ul className='list-group'>
+                            {user &&
+                                Object.keys(user).map((key) => (
+                                    <li
+                                        key={key}
+                                        className='list-group-item mt-3'
+                                    >
+                                        {user[key].name}, {user[key].email}
+                                    </li>
+                                ))}
+                        </ul>
                     </div>
                 </div>
             </div>
