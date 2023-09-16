@@ -41,7 +41,7 @@ function App() {
         setUpdate(!update);
     };
 
-    // Login Hanlder
+    // Login Handler
     const loginHandler = () => {
         if (!isLogged) {
             // const { id } = userData;
@@ -55,6 +55,37 @@ function App() {
         }
     };
 
+    // addToFav Handler
+    const addToFav = async (key) => {
+        const response = await fetch(
+            `https://javascript27kod-default-rtdb.firebaseio.com/users/favs.json`
+        );
+        const favs = await response.json();
+        const updatedFavs = favs ? { ...favs, key } : [key];
+
+        const update = await fetch(
+            `https://javascript27kod-default-rtdb.firebaseio.com/users/favs.json`,
+            {
+                method: 'PUT',
+                body: JSON.stringify(updatedFavs),
+            }
+        );
+        const result = await update.json();
+        console.log(result);
+    };
+
+    // Delete Handler
+    const deleteHandler = async (key) => {
+        const response = await fetch(
+            `https://javascript27kod-default-rtdb.firebaseio.com/users/${key}.json`,
+            {
+                method: 'DELETE',
+            }
+        );
+        const data = await response.json();
+        setUpdate(!update);
+    };
+
     // useEffect() tokenExists
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -66,7 +97,7 @@ function App() {
             <div className='container'>
                 <div className='row'>
                     <div className='col-12'>
-                        <div className='d-flex justify-content-end mt-3'>
+                        <div className='d-flex justify-content-end mt-3 me-4'>
                             <button
                                 className='btn btn-success'
                                 onClick={loginHandler}
@@ -78,7 +109,7 @@ function App() {
                 </div>
                 <div className='row'>
                     <div className='d-flex'>
-                        <div className='col-12 col-md-3 pb-3 mt-3'>
+                        <div className='col-4 col-md-5 pb-3 mt-3'>
                             <h3 className='m-0'>Register form</h3>
                             <form>
                                 <div className=''>
@@ -121,7 +152,7 @@ function App() {
                             </form>
                         </div>
                         {isLogged && (
-                            <div className='d-flex justify-content-between col-12 col-md-10 ms-5'>
+                            <div className='justify-content-between col-8 col-md-6 ms-5'>
                                 <div className='pb-3 mt-3'>
                                     <h3>Users list</h3>
                                     <ul className='list-group'>
@@ -129,13 +160,40 @@ function App() {
                                             Object.keys(user).map((key) => (
                                                 <li
                                                     key={key}
-                                                    className='list-group-item mt-3'
+                                                    className='list-group-item d-flex justify-content-between mt-3'
                                                 >
                                                     {user[key].name},{' '}
                                                     {user[key].email}
-                                                    <button className='btn btn-primary ms-3'>
-                                                        ★
-                                                    </button>
+                                                    <div className='text-center'>
+                                                        <button
+                                                            className='btn btn-primary ms-1'
+                                                            onClick={() =>
+                                                                addToFav(key)
+                                                            }
+                                                        >
+                                                            ★
+                                                        </button>
+                                                        <button
+                                                            className='btn btn-primary ms-1'
+                                                            onClick={() =>
+                                                                deleteHandler(
+                                                                    key
+                                                                )
+                                                            }
+                                                        >
+                                                            <svg
+                                                                xmlns='http://www.w3.org/2000/svg'
+                                                                width='16'
+                                                                height='16'
+                                                                fill='currentColor'
+                                                                class='bi bi-trash'
+                                                                viewBox='0 0 16 16'
+                                                            >
+                                                                <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z' />
+                                                                <path d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z' />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
                                                 </li>
                                             ))}
                                     </ul>
