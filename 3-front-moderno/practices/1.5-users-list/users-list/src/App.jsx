@@ -19,7 +19,7 @@ function App() {
         getUsers();
     }, [update]);
 
-    // pdate Handler
+    // update Handler
     const updateHandler = () => setUpdate(!update);
 
     // userData Handler
@@ -77,66 +77,73 @@ function App() {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-12 col-md-4 pb-3 mt-3'>
-                        <h3 className='m-0'>Register form</h3>
-                        <form>
-                            <div className=''>
-                                <label
-                                    htmlFor='exampleInputEmail1'
-                                    className='form-label'
-                                ></label>
-                                <input
-                                    type='text'
-                                    className='form-control mt-1'
-                                    id='userName'
-                                    aria-describedby='userName'
-                                    placeholder='Name'
-                                    name='name'
-                                    onChange={inputHanlder}
-                                />
-                            </div>
-                            <div className='mb-3'>
-                                <label
-                                    htmlFor='exampleInputPassword1'
-                                    className='form-label'
-                                ></label>
-                                <input
-                                    type='email'
-                                    className='form-control'
-                                    id='userEmail'
-                                    placeholder='Email'
-                                    name='email'
-                                    onChange={inputHanlder}
-                                />
-                            </div>
+                    <div className='d-flex'>
+                        <div className='col-12 col-md-3 pb-3 mt-3'>
+                            <h3 className='m-0'>Register form</h3>
+                            <form>
+                                <div className=''>
+                                    <label
+                                        htmlFor='exampleInputEmail1'
+                                        className='form-label'
+                                    ></label>
+                                    <input
+                                        type='text'
+                                        className='form-control mt-1'
+                                        id='userName'
+                                        aria-describedby='userName'
+                                        placeholder='Name'
+                                        name='name'
+                                        onChange={inputHanlder}
+                                    />
+                                </div>
+                                <div className='mb-3'>
+                                    <label
+                                        htmlFor='exampleInputPassword1'
+                                        className='form-label'
+                                    ></label>
+                                    <input
+                                        type='email'
+                                        className='form-control'
+                                        id='userEmail'
+                                        placeholder='Email'
+                                        name='email'
+                                        onChange={inputHanlder}
+                                    />
+                                </div>
 
-                            <button
-                                type='submit'
-                                className='btn btn-primary mb-3'
-                                onClick={saveUser}
-                            >
-                                Save
-                            </button>
-                        </form>
-                    </div>
-                    <div className='col-12 col-md-4 pb-3 mt-3'>
-                        <h3>Users list</h3>
-                        <ul className='list-group'>
-                            {user &&
-                                Object.keys(user).map((key) => (
-                                    <li
-                                        key={key}
-                                        className='list-group-item mt-3'
-                                    >
-                                        {user[key].name}, {user[key].email}
-                                    </li>
-                                ))}
-                        </ul>
-                    </div>
-                    <div className='col-12 col-md-4 pb-3 mt-3'>
-                        <h3>Friends</h3>
-                        <ul className='list-group'>
-                            {/* {user &&
+                                <button
+                                    type='submit'
+                                    className='btn btn-primary mb-3'
+                                    onClick={saveUser}
+                                >
+                                    Save
+                                </button>
+                            </form>
+                        </div>
+                        {isLogged && (
+                            <div className='d-flex justify-content-between col-12 col-md-10 ms-5'>
+                                <div className='pb-3 mt-3'>
+                                    <h3>Users list</h3>
+                                    <ul className='list-group'>
+                                        {user &&
+                                            Object.keys(user).map((key) => (
+                                                <li
+                                                    key={key}
+                                                    className='list-group-item mt-3'
+                                                >
+                                                    {user[key].name},{' '}
+                                                    {user[key].email}
+                                                    <button className='btn btn-primary ms-3'>
+                                                        Fav
+                                                    </button>
+                                                </li>
+                                            ))}
+                                    </ul>
+                                </div>
+                                <div className='col-12 col-md-7 pb-3 mt-3'>
+                                    <h3>Friends</h3>
+                                    <ul className='list-group'>
+                                        {/* {user &&
                                 Object.keys(user).map((key) => (
                                     <li
                                         key={key}
@@ -145,7 +152,10 @@ function App() {
                                         {user[key].name}, {user[key].email}
                                     </li>
                                 ))} */}
-                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
