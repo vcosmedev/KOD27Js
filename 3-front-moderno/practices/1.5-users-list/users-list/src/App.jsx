@@ -134,7 +134,7 @@ function App() {
                                                     {user[key].name},{' '}
                                                     {user[key].email}
                                                     <button className='btn btn-primary ms-3'>
-                                                        Fav
+                                                        ★
                                                     </button>
                                                 </li>
                                             ))}
