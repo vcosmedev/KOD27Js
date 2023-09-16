@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css';
 
 function App() {
-    const [user, setUser] = useState({});
+    const [users, setUser] = useState({});
     const [update, setUpdate] = useState(false);
     const [userData, setUserData] = useState({});
     const [isLogged, setIsLogged] = useState(false);
+    const [friendData, setFriendData] = useState(null);
+    const [favFriends, setFavFriends] = useState([]);
 
     // useEffect() getUsers
     useEffect(() => {
@@ -27,7 +29,7 @@ function App() {
         setUserData({ ...userData, [event.target.name]: event.target.value });
     };
 
-    // Save user
+    // Save users
     const saveUser = async () => {
         const response = await fetch(
             'https://javascript27kod-default-rtdb.firebaseio.com/users.json',
@@ -38,6 +40,18 @@ function App() {
         );
         const data = await response.json();
         console.log(data);
+        setUpdate(!update);
+    };
+
+    // Delete Handler
+    const deleteHandler = async (key) => {
+        const response = await fetch(
+            `https://javascript27kod-default-rtdb.firebaseio.com/users/${key}.json`,
+            {
+                method: 'DELETE',
+            }
+        );
+        const data = await response.json();
         setUpdate(!update);
     };
 
@@ -58,13 +72,17 @@ function App() {
     // addToFav Handler
     const addToFav = async (key) => {
         const response = await fetch(
-            `https://javascript27kod-default-rtdb.firebaseio.com/users/favs.json`
+            `https://javascript27kod-default-rtdb.firebaseio.com/vic/favs.json`
+            // `https://javascript27kod-default-rtdb.firebaseio.com/users/favs.json`
         );
         const favs = await response.json();
-        const updatedFavs = favs ? { ...favs, key } : [key];
+        console.log(favs);
+        const updatedFavs = favs ? [...favs, key] : [key];
+        console.log(updatedFavs);
 
         const update = await fetch(
-            `https://javascript27kod-default-rtdb.firebaseio.com/users/favs.json`,
+            `https://javascript27kod-default-rtdb.firebaseio.com/vic/favs.json`,
+            // `https://javascript27kod-default-rtdb.firebaseio.com/users/favs.json`,
             {
                 method: 'PUT',
                 body: JSON.stringify(updatedFavs),
@@ -74,17 +92,22 @@ function App() {
         console.log(result);
     };
 
-    // Delete Handler
-    const deleteHandler = async (key) => {
-        const response = await fetch(
-            `https://javascript27kod-default-rtdb.firebaseio.com/users/${key}.json`,
-            {
-                method: 'DELETE',
-            }
-        );
-        const data = await response.json();
-        setUpdate(!update);
-    };
+    // useEffect to show list friends
+    useEffect(() => {
+        const getFriendsData = async (friendKey) => {
+            const response = await fetch(
+                `https://javascript27kod-default-rtdb.firebaseio.com/${friendKey}/.json`
+            );
+            const data = await response.json();
+            console.log(data);
+            const userFriends = users && data.favs.map((user) => users[user]);
+            console.log(userFriends);
+
+            setFriendData(data);
+            setFavFriends(userFriends);
+        };
+        getFriendsData('vic');
+    }, [users]);
 
     // useEffect() tokenExists
     useEffect(() => {
@@ -156,14 +179,14 @@ function App() {
                                 <div className='pb-3 mt-3'>
                                     <h3>Users list</h3>
                                     <ul className='list-group'>
-                                        {user &&
-                                            Object.keys(user).map((key) => (
+                                        {users &&
+                                            Object.keys(users).map((key) => (
                                                 <li
                                                     key={key}
                                                     className='list-group-item d-flex justify-content-between mt-3'
                                                 >
-                                                    {user[key].name},{' '}
-                                                    {user[key].email}
+                                                    {users[key].name},{' '}
+                                                    {users[key].email}
                                                     <div className='text-center'>
                                                         <button
                                                             className='btn btn-primary ms-1'
@@ -186,7 +209,7 @@ function App() {
                                                                 width='16'
                                                                 height='16'
                                                                 fill='currentColor'
-                                                                class='bi bi-trash'
+                                                                className='bi bi-trash'
                                                                 viewBox='0 0 16 16'
                                                             >
                                                                 <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z' />
@@ -201,15 +224,12 @@ function App() {
                                 <div className='col-12 col-md-7 pb-3 mt-3'>
                                     <h3>Friends</h3>
                                     <ul className='list-group'>
-                                        {/* {user &&
-                                Object.keys(user).map((key) => (
-                                    <li
-                                        key={key}
-                                        className='list-group-item mt-3'
-                                    >
-                                        {user[key].name}, {user[key].email}
-                                    </li>
-                                ))} */}
+                                        {favFriends &&
+                                            favFriends.map((friend) => (
+                                                <li className='list-group-item mt-3'>
+                                                    {friend.name} {friend.email}
+                                                </li>
+                                            ))}
                                     </ul>
                                 </div>
                             </div>
