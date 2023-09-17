@@ -72,7 +72,7 @@ function App() {
                             <li class='nav-item'>
                                 <Link
                                     className='text-decoration-none'
-                                    to='products'
+                                    to='products/list-all'
                                 >
                                     Products
                                 </Link>
