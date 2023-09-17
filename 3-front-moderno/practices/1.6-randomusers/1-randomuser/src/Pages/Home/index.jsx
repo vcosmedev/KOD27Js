@@ -18,7 +18,7 @@ const Home = () => {
                         <button className='btn btn-primary'>
                             <Link
                                 className='text-decoration-none text-reset me-3'
-                                to='products'
+                                to='products/list-all'
                             >
                                 Products
                             </Link>

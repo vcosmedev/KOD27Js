@@ -12,7 +12,7 @@ const ListAllUsers = ({ allUsers }) => {
                         >
                             <img
                                 src={picture.thumbnail}
-                                alt=''
+                                alt='Profile Picture'
                                 className='rounded-circle img-fluid'
                             />
                             <p className='fw-bold'>{`${name.title}. ${name.first} ${name.last}`}</p>

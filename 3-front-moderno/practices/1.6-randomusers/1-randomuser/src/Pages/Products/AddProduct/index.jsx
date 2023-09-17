@@ -1,9 +1,9 @@
-// export default function CreateUser() => {...}
+// export default function AddProduct() => {...}
 
-const CreateUser = () => {
+const AddProduct = () => {
     return (
         <>
-            <h2 className='mb-3'>Create user</h2>
+            <h2 className='mb-3'>Add New Product</h2>
             <form
                 action=''
                 className='p-3 bg-dark-text-white border rounded mb-3'
@@ -14,9 +14,9 @@ const CreateUser = () => {
                 </div>
             </form>
 
-            <button className='btn btn-primary'>Save user</button>
+            <button className='btn btn-primary'>Save New Product</button>
         </>
     );
 };
 
-export default CreateUser;
+export default AddProduct;

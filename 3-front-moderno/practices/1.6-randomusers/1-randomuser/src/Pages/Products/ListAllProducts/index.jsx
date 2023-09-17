@@ -1,13 +1,23 @@
-const ListAllProducts = () => {
+const ListAllProducts = ({ allProducts }) => {
     return (
         <>
             <h2 className='mb-3'>List All Products</h2>
             <ul className='list-group'>
-                <li className='list-group-item'>Product 01</li>
-                <li className='list-group-item'>Product 02</li>
-                <li className='list-group-item'>Product 03</li>
-                <li className='list-group-item'>Product 04</li>
-                <li className='list-group-item'>Product 05</li>
+                {allProducts.map((product) => {
+                    const { image, title, price } = product;
+                    return (
+                        <li className='list-group-item d-flex justify-content-start align-items-center gap-5'>
+                            <div className='w-25'>
+                                <img
+                                    src={image}
+                                    alt='Product Picture'
+                                    className='rounded-circle img-fluid'
+                                />
+                            </div>
+                            <p className='fw-bold'> {`${title} ${price}`} </p>
+                        </li>
+                    );
+                })}
             </ul>
         </>
     );

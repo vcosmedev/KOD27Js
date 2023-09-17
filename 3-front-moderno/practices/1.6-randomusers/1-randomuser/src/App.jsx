@@ -7,12 +7,14 @@ import Users from './Pages/Users/UsersDashboard';
 import CreateUser from './Pages/Users/CreateUser';
 import ListAllUsers from './Pages/Users/ListAllUsers';
 import Products from './Pages/Products/ProductsDashboard';
+import AddProduct from './Pages/Products/AddProduct';
 import ListAllProducts from './Pages/Products/ListAllProducts';
 
 import { useState, useEffect } from 'react';
 
 function App() {
     const [users, setUsers] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const getUsers = async () => {
@@ -23,6 +25,17 @@ function App() {
             setUsers(data.results);
         };
         getUsers();
+    }, []);
+
+    useEffect(() => {
+        const getProducts = async () => {
+            const response = await fetch(
+                'https://fakestoreapi.com/products?limit=20'
+            );
+            const data = await response.json();
+            setProducts(data);
+        };
+        getProducts();
     }, []);
 
     return (
@@ -85,8 +98,14 @@ function App() {
 
                         <Route path='/products' element={<Products />}>
                             <Route
+                                path='add-product'
+                                element={<AddProduct />}
+                            ></Route>
+                            <Route
                                 path='list-all'
-                                element={<ListAllProducts />}
+                                element={
+                                    <ListAllProducts allProducts={products} />
+                                }
                             ></Route>
                         </Route>
                     </Routes>

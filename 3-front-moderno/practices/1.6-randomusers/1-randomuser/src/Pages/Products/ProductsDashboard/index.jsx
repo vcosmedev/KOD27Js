@@ -10,6 +10,14 @@ const Products = () => {
                         <li className='list-group-item'>
                             <Link
                                 className='text-decoration-none link-primary link-offset-2'
+                                to='add-product'
+                            >
+                                Add Product
+                            </Link>
+                        </li>
+                        <li className='list-group-item'>
+                            <Link
+                                className='text-decoration-none link-primary link-offset-2'
                                 to='list-all'
                             >
                                 List All Products
@@ -18,7 +26,9 @@ const Products = () => {
                     </ul>
                 </div>
             </div>
-            <Outlet />
+            <div className='col-12'>
+                <Outlet />
+            </div>
         </>
     );
 };
