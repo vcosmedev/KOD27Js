@@ -1,9 +1,8 @@
 import './App.css';
-import { useEffect, useState } from 'react';
-import UsersListPage from './Pages/Users/UsersDashboard';
 import { Route, Routes, Link } from 'react-router-dom';
-import Products from './Pages/Products';
+import Home from './Pages/Home';
 import Users from './Pages/Users/UsersDashboard';
+import Products from './Pages/Products';
 import CreateUser from './Pages/Users/CreateUser';
 import ListAllUsers from './Pages/Users/ListAllUsers';
 
@@ -12,9 +11,9 @@ function App() {
         <>
             <nav class='navbar navbar-expand-lg bg-body-tertiary'>
                 <div class='container-fluid'>
-                    <a class='navbar-brand' href='#'>
-                        Navbar
-                    </a>
+                    <Link className='text-decoration-none fw-bold me-3' to='/'>
+                        Home
+                    </Link>
                     <button
                         class='navbar-toggler'
                         type='button'
@@ -54,7 +53,7 @@ function App() {
             <div className='container'>
                 <div className='row'>
                     <Routes>
-                        {/* <Route path='/' element={<Home />} /> */}
+                        <Route path='/' element={<Home />} />
                         <Route path='/users' element={<Users />}>
                             <Route
                                 path='create'
