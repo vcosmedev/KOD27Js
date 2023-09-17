@@ -7,7 +7,7 @@ const Products = () => {
                 <h1 className='mb-3'>Products Dashboard</h1>
                 <div className='col-12 div col-md-3 mb-5'>
                     <ul className='list-group'>
-                        <li className='list-group-item '>
+                        <li className='list-group-item'>
                             <Link
                                 className='text-decoration-none link-primary link-offset-2'
                                 to='list-all'
