@@ -1,5 +1,7 @@
-import './App.css';
 import { Route, Routes, Link } from 'react-router-dom';
+
+import './App.css';
+
 import Home from './Pages/Home';
 import Users from './Pages/Users/UsersDashboard';
 import CreateUser from './Pages/Users/CreateUser';
@@ -7,7 +9,22 @@ import ListAllUsers from './Pages/Users/ListAllUsers';
 import Products from './Pages/Products/ProductsDashboard';
 import ListAllProducts from './Pages/Products/ListAllProducts';
 
+import { useState, useEffect } from 'react';
+
 function App() {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const getUsers = async () => {
+            const response = await fetch(
+                'https://randomuser.me/api/?results=20'
+            );
+            const data = await response.json();
+            setUsers(data.results);
+        };
+        getUsers();
+    }, []);
+
     return (
         <>
             <nav class='navbar navbar-expand-lg bg-body-tertiary'>
@@ -62,7 +79,7 @@ function App() {
                             ></Route>
                             <Route
                                 path='list-all'
-                                element={<ListAllUsers />}
+                                element={<ListAllUsers allUsers={users} />}
                             ></Route>
                         </Route>
 

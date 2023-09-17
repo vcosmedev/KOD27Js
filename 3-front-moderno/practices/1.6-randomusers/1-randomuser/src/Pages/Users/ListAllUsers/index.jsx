@@ -1,13 +1,24 @@
-const ListAllUsers = () => {
+const ListAllUsers = ({ allUsers }) => {
     return (
         <>
             <h2 className='mb-3'>List All Users</h2>
-            <ul className='list-group'>
-                <li className='list-group-item'>User 01</li>
-                <li className='list-group-item'>User 02</li>
-                <li className='list-group-item'>User 03</li>
-                <li className='list-group-item'>User 04</li>
-                <li className='list-group-item'>User 05</li>
+            <ul className='list-group mb-5'>
+                {allUsers.map((user) => {
+                    const { name, login, picture } = user;
+                    return (
+                        <li
+                            key={login.uuid}
+                            className='list-group-item d-flex justify-content-start aling-items-center gap-5'
+                        >
+                            <img
+                                src={picture.thumbnail}
+                                alt=''
+                                className='rounded-circle img-fluid'
+                            />
+                            <p className='fw-bold'>{`${name.title}. ${name.first} ${name.last}`}</p>
+                        </li>
+                    );
+                })}
             </ul>
         </>
     );
