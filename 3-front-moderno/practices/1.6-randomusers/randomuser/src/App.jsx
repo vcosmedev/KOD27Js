@@ -6,7 +6,6 @@ import Products from './Pages/Products';
 import Users from './Pages/Users/UsersDashboard';
 import CreateUser from './Pages/Users/CreateUser';
 import ListAllUsers from './Pages/Users/ListAllUsers';
-// Links
 
 function App() {
     return (
