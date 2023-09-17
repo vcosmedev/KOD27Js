@@ -2,9 +2,10 @@ import './App.css';
 import { Route, Routes, Link } from 'react-router-dom';
 import Home from './Pages/Home';
 import Users from './Pages/Users/UsersDashboard';
-import Products from './Pages/Products';
 import CreateUser from './Pages/Users/CreateUser';
 import ListAllUsers from './Pages/Users/ListAllUsers';
+import Products from './Pages/Products/ProductsDashboard';
+import ListAllProducts from './Pages/Products/ListAllProducts';
 
 function App() {
     return (
@@ -65,7 +66,12 @@ function App() {
                             ></Route>
                         </Route>
 
-                        <Route path='/products' element={<Products />} />
+                        <Route path='/products' element={<Products />}>
+                            <Route
+                                path='list-all'
+                                element={<ListAllProducts />}
+                            ></Route>
+                        </Route>
                     </Routes>
                 </div>
             </div>
