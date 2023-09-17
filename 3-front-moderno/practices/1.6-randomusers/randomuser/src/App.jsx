@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import UsersListPage from './Pages/Users/UsersDashboard';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import Products from './Pages/Products';
 import Users from './Pages/Users/UsersDashboard';
 import CreateUser from './Pages/Users/CreateUser';
@@ -32,18 +32,20 @@ function App() {
                     >
                         <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
                             <li class='nav-item'>
-                                <a
-                                    class='nav-link active'
-                                    aria-current='page'
-                                    href='#'
+                                <Link
+                                    className='text-decoration-none me-3'
+                                    to='users/list-all'
                                 >
                                     Users
-                                </a>
+                                </Link>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link' href='#'>
+                                <Link
+                                    className='text-decoration-none'
+                                    to='products'
+                                >
                                     Products
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -52,6 +54,7 @@ function App() {
             <div className='container'>
                 <div className='row'>
                     <Routes>
+                        {/* <Route path='/' element={<Home />} /> */}
                         <Route path='/users' element={<Users />}>
                             <Route
                                 path='create'
