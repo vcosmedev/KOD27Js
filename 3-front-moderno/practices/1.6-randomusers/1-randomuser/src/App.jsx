@@ -28,14 +28,14 @@ function App() {
     }, []);
 
     useEffect(() => {
-        const getProducts = async () => {
+        const getAllProducts = async () => {
             const response = await fetch(
                 'https://fakestoreapi.com/products?limit=20'
             );
             const data = await response.json();
             setProducts(data);
         };
-        getProducts();
+        getAllProducts();
     }, []);
 
     return (

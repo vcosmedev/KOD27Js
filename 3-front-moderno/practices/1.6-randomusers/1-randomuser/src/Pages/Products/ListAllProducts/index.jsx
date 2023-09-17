@@ -1,4 +1,16 @@
+import React, { useEffect, useState } from 'react';
+import productsApi from '../../../lib/productsApi';
+
 const ListAllProducts = ({ allProducts }) => {
+    // const [products, setProducts] = useState([]);
+    // useEffect(() => {
+    //     const getAllProducts = async () => {
+    //         const response = await productsApi.getAllProducts();
+    //         const data = await response.json();
+    //         setProducts(data);
+    //     };
+    //     getAllProducts();
+    // }, []);
     return (
         <>
             <h2 className='mb-3'>List All Products</h2>
