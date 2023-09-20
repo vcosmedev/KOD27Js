@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, test } from 'vitest';
-import iva from './iva.test.js'; // import function that want to be tested
+import iva from '../iva.js'; // import function that want to be tested
 
 describe('IVA test', () => {
     test('It is a function', () => {

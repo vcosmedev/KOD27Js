@@ -1,4 +1,4 @@
-const artistsAndCities = [
+const artistsAndCountries = [
     {
         artist: 'Miley Cyrus',
         country: 'United States',
@@ -3861,4 +3861,4 @@ const artistsAndCities = [
     },
 ];
 
-export default artistsAndCities;
+export default artistsAndCountries;
