@@ -6,7 +6,7 @@
 // Crea una función que reciba este arreglo y regrese un objeto donde cada llave sea un país y el valor
 // se al número de artistas top en ese país.
 
-export function countByCountry(artistsAndCountries) {
+function countByCountry(artistsAndCountries) {
     const countryCount = artistsAndCountries.reduce(
         (countriesObject, current) => {
             const { country } = current;
