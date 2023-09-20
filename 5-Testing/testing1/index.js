@@ -1,7 +1,7 @@
 import calculateIVA from './iva.js';
 import removeVowels from './removeVowels.js';
 import { countByCountry } from './spotify.js';
-import getCountries from './spotifycities.js';
+import getCountries from './spotifycountries.js';
 import artistsAndCities from './spotifydb.js';
 
 console.log(calculateIVA(100));
