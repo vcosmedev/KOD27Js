@@ -2,17 +2,26 @@ import { useForm } from 'react-hook-form';
 
 function App() {
     const { register, handleSubmit } = useForm();
-    const saveUser = (data) => console.log(data);
+
+    const saveProduct = async (data) => {
+        const response = await fetch(
+            'https://javascript27kod-default-rtdb.firebaseio.com/products/.json',
+            {
+                method: 'POST',
+                body: JSON.stringify(data),
+            }
+        );
+    };
 
     return (
         <div className='container'>
             <div className='row'>
-                <div className='col-12'>
+                <div className='col-12 col-md-6'>
                     <form
-                        onSubmit={handleSubmit(saveUser)}
+                        onSubmit={handleSubmit(saveProduct)}
                         className='p-3 bg-dark text-white border rounded'
                     >
-                        <div className='form-gropu'>
+                        <div className='form-group'>
                             <label htmlFor=''>Name</label>
                             <input
                                 type='text'
@@ -20,40 +29,24 @@ function App() {
                                 {...register('name')}
                             />
                         </div>
-                        <div className='form-gropu'>
-                            <label htmlFor=''>Surname</label>
+                        <div className='form-group'>
+                            <label htmlFor=''>Description</label>
                             <input
                                 type='text'
                                 className='form-control'
-                                {...register('surname')}
+                                {...register('description')}
                             />
                         </div>
-                        <div className='form-gropu'>
-                            <label htmlFor=''>Email</label>
+                        <div className='form-group'>
+                            <label htmlFor=''>Price</label>
                             <input
-                                type='email'
+                                type='number'
                                 className='form-control'
-                                {...register('email')}
-                            />
-                        </div>
-                        <div className='form-gropu'>
-                            <label htmlFor=''>Phone</label>
-                            <input
-                                type='phone'
-                                className='form-control'
-                                {...register('phone')}
-                            />
-                        </div>
-                        <div className='form-gropu'>
-                            <label htmlFor=''>Address</label>
-                            <input
-                                type='text'
-                                className='form-control'
-                                {...register('address')}
+                                {...register('number')}
                             />
                         </div>
                         <button type='submit' className='btn btn-light mt-3'>
-                            Create user
+                            Create Product
                         </button>
                     </form>
                 </div>
