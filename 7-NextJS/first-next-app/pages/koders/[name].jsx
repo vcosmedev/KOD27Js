@@ -1,3 +1,7 @@
+import { useRouter } from 'next/router';
+
 export default function Koder() {
-    return <h1>Unkown Koder</h1>;
+    const router = useRouter();
+
+    return <h1>Koder {router.query.name}</h1>;
 }
